@@ -41,11 +41,16 @@
     // Disable deprecated features
     db.settings({ timestampsInSnapshots: true });
     
-    db.collection("prototypes").get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-          console.log(`${doc.id} => ${doc.data()}`);
-          console.log(${doc});
-      });
+    var docRef = db.collection("prototypes").doc("Apple");
+    docRef.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch(function(error) {
+        console.log("Error getting document:", error);
     });
     
     
