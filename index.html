@@ -46,8 +46,10 @@
     docRef.get().then(function(doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
-            $('.prototype-name').html(doc.name());
-            $('.prototype-intro').html(doc.intro());
+            var data = doc.data();
+          
+            $('.prototype-name').html(data.name);
+            $('.prototype-intro').html(data.intro);
 
         } else {
             // doc.data() will be undefined in this case
