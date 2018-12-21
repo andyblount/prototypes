@@ -44,6 +44,12 @@
     db.settings({
       timestampsInSnapshots: true
     });
+    
+    db.collection("prototypes").get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          console.log(`${doc.id} => ${doc.data()}`);
+      });
+    });
   </script>
   <!-- JQuery -->
   <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
