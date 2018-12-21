@@ -19,8 +19,9 @@
 <body>
 
   <!-- Start your project here-->
-  <h1>Hello</h1>
-
+  <h1 class="prototype-name">Loading</h1>
+  <p class="prototype-intro"></p>
+  
   <!-- SCRIPTS -->
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
@@ -45,6 +46,9 @@
     docRef.get().then(function(doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+            $('.prototype-name').html(doc.name());
+            $('.prototype-intro').html(doc.intro());
+
         } else {
             // doc.data() will be undefined in this case
             console.log("No such document!");
