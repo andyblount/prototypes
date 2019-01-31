@@ -151,22 +151,22 @@
 			selectedEmployment = $(this).children("option:selected").val();
 			if(selectedEmployment == 'full' || selectedEmployment == 'part' || selectedEmployment == 'self') { 
 				employedStatus = true;
-                completed = false;
+                		completed = false;
 				$('.employed-field').removeClass('d-none');
                 $('.complete-message').addClass('d-none');
 			}
 			else {
 				employedStatus = false;
-                completed = true;
+                		completed = true;
 				$('.employed-field').addClass('d-none');
-                $('.complete-message').removeClass('d-none');
+                		$('.complete-message').removeClass('d-none');
 			}
 		});
         $('#form-job').change(function() {
           var current = $('#job-autocomplete').typeahead("getActive");
           if (current) {
             // Some item from your model is active!
-            if (current.name == $input.val()) {
+            if (current.name == $('#job-autocomplete').val()) {
               // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
                 completed = true;
                 $('.complete-message').removeClass('d-none');
