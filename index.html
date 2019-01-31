@@ -45,18 +45,31 @@
           <!--Body-->
           <div>
             <div class="md-form pb-3">
-              <input type="text" id="Form-email1" class="form-control">
-              <label for="Form-email1">Your name</label>
+	  	<label for="employment-status">Please select your emplyment status</label>
+	    	<select id="employment-status" class="form-control">
+			<option>- Please select -</option>    
+			<option>Full time</option>    
+			<option>Part time</option>    
+			<option>Self employed</option>    
+			<option>Unemployed</option>    
+			<option>Homemaker</option>    
+			<option>Retired</option>    
+			<option>Volunteer</option>    
+			<option>Student</option>    
+		</select>
             </div>
 
             <div class="md-form pb-3">
-              <input type="text" id="form-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
-              <label for="form-autocomplete" class="active">What is your job title?</label>
+	    	<label for="form-autocomplete" class="active">What industry do you work in?</label>
+	   	<input type="text" id="industry-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
+            </div>
+		  
+	<div class="md-form pb-3">
+	    	<label for="form-autocomplete" class="active">Job role</label>
+	   	<input type="text" id="job-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 
-            <div class="text-center mb-3">
-              <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign up</button>
-            </div>
+
           </div>
         </div>
 
