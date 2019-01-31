@@ -51,7 +51,7 @@
 
             <div class="md-form pb-3">
               <input type="text" id="form-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
-              <label for="form-autocomplete" class="active">What is your favorite US state?</label>
+              <label for="form-autocomplete" class="active">What is your job title?</label>
             </div>
 
             <div class="text-center mb-3">
@@ -1094,7 +1094,8 @@
 
     $('.typeahead').typeahead({
       source: jobs,
-      fitToElement: true
+      fitToElement: true,
+	items: 'all'
     });
   </script>
 </body>
