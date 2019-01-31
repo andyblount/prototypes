@@ -48,26 +48,26 @@ win £300 in a free prize draw]</strong></p>
             <div class="md-form pb-3">
 	  	<label for="employment-status">Please select your emplyment status</label>
 	    	<select id="employment-status" class="form-control">
-			<option>- Please select -</option>    
-			<option>Full time</option>    
-			<option>Part time</option>    
-			<option>Self employed</option>    
-			<option>Unemployed</option>    
-			<option>Homemaker</option>    
-			<option>Retired</option>    
-			<option>Volunteer</option>    
-			<option>Student</option>    
+			<option value="" disabled selected>- Please select -</option>    
+			<option value="full">Full time</option>    
+			<option value="part">Part time</option>    
+			<option value="self">Self employed</option>    
+			<option value="no">Unemployed</option>    
+			<option value="home">Homemaker</option>    
+			<option value="ret">Retired</option>    
+			<option value="vol">Volunteer</option>    
+			<option value="stu">Student</option>    
 		</select>
             </div>
 
             <div class="md-form pb-3">
-	    	<label for="industry-autocomplete" class="active">What industry do you work in?</label>
+	    	<label for="industry-autocomplete">What industry do you work in?</label>
 		<small class="form-text text-muted">Can't find it? Just choose the one that fits best</small>
 	   	<input type="text" id="industry-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 		  
 	<div class="md-form pb-3">
-	    	<label for="job-autocomplete" class="active">Job role</label>
+	    	<label for="job-autocomplete">Job role</label>
 		<small class="form-text text-muted">Can't find it? Try describing it differently and select the closest match</small>
 	   	<input type="text" id="job-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
@@ -142,6 +142,15 @@ win £300 in a free prize draw]</strong></p>
   <script type="text/javascript" src="js/bootstrap3-typeahead.min.js"></script>
   
   <script>
+	$(document).ready(function(){
+    $("#employment-status").change(function(){
+        var selectedEmployment = $(this).children("option:selected").val();
+        console.log(selectedEmployment);
+    });
+});
+	  
+	  
+	  
   var industry = [
   {
     name: "Academia"
