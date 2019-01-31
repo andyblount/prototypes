@@ -163,7 +163,7 @@
 			}
 		});
         $('#form-job').change(function() {
-          var current = $(this).typeahead("getActive");
+          var current = $('#job-autocomplete').typeahead("getActive");
           if (current) {
             // Some item from your model is active!
             if (current.name == $input.val()) {
