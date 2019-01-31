@@ -44,19 +44,20 @@
 
           <!--Body-->
           <div class="md-form">
-            <input type="text" id="Form-email1" class="form-control">
-            <label for="Form-email1">Your name</label>
-          </div>
+            <div class="pb-3 mb-3">
+              <input type="text" id="Form-email1" class="form-control">
+              <label for="Form-email1">Your name</label>
+            </div>
 
-          <div class="md-form pb-3">
-            <input type="text" id="form-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
-            <label for="form-autocomplete" class="active">What is your favorite US state?</label>
-          </div>
+            <div class="pb-3 mb-3">
+              <input type="text" id="form-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
+              <label for="form-autocomplete" class="active">What is your favorite US state?</label>
+            </div>
 
-          <div class="text-center mb-3">
-            <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign up</button>
+            <div class="text-center mb-3">
+              <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign up</button>
+            </div>
           </div>
-
         </div>
 
       </div>
@@ -176,8 +177,7 @@
     ];
 
     $('.typeahead').typeahead({
-      source: states,
-      items: 15
+      source: states
     });
   </script>
 </body>
