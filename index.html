@@ -60,13 +60,13 @@ win £300 in a free prize draw]</strong></p>
 		</select>
             </div>
 
-            <div class="form-group hidden" id="form-industry">
+            <div class="form-group d-none employed-field" id="form-industry">
 	    	<label for="industry-autocomplete">What industry do you work in?</label>
 		<small class="form-text text-muted">Can't find it? Just choose the one that fits best</small>
 	   	<input type="text" id="industry-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 		  
-	<div class="form-group hidden" id="form-job">
+	<div class="form-group d-none employed-field" id="form-job">
 	    	<label for="job-autocomplete">Job role</label>
 		<small class="form-text text-muted">Can't find it? Try describing it differently and select the closest match</small>
 	   	<input type="text" id="job-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
@@ -145,14 +145,17 @@ win £300 in a free prize draw]</strong></p>
 	$(document).ready(function(){
 		var selectedEmployment = null;
 		var employedStatus = false;
-		$("#employment-status").change(function(){
+		$('#employment-status').change(function(){
 			selectedEmployment = $(this).children("option:selected").val();
 			if(selectedEmployment == 'full' || selectedEmployment == 'part' || selectedEmployment == 'self') { 
-				employedStatus = true; }
+				employedStatus = true;
+				$('.employed-field').removeClass('d-none');
+			}
 			else {
-				employedStatus = false; }
+				employedStatus = false;
+				$('.employed-field').addClass('d-none');
+			}
 			console.log(employedStatus);
-
 		});
 	});
 	  
