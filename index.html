@@ -19,10 +19,16 @@
 <body>
 
   <!-- Start your project here-->
-  <h1 class="prototype-name">Loading</h1>
-  <p class="prototype-intro"></p>
+  <!--<h1 class="prototype-name">Loading</h1>
+  <p class="prototype-intro"></p>-->
   
-  <input type="text" class="typeahead" data-provide="typeahead" autocomplete="off">
+  
+  <div class="md-form">
+  <input type="text" id="form-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
+  <button type="submit">Go</button>
+  <label for="form-autocomplete" class="active">What is your favorite US state?</label>
+</div>
+  
   
   <!-- SCRIPTS -->
   <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
