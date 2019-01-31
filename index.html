@@ -45,7 +45,7 @@ win £300 in a free prize draw]</strong></p>
 
           <!--Body-->
           <div>
-            <div class="md-form pb-3">
+            <div class="form-group" id="form-employment-status">
 	  	<label for="employment-status">Please select your emplyment status</label>
 	    	<select id="employment-status" class="form-control">
 			<option value="" disabled selected>- Please select -</option>    
@@ -60,13 +60,13 @@ win £300 in a free prize draw]</strong></p>
 		</select>
             </div>
 
-            <div class="md-form pb-3">
+            <div class="form-group hidden" id="form-industry">
 	    	<label for="industry-autocomplete">What industry do you work in?</label>
 		<small class="form-text text-muted">Can't find it? Just choose the one that fits best</small>
 	   	<input type="text" id="industry-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 		  
-	<div class="md-form pb-3">
+	<div class="form-group hidden" id="form-job">
 	    	<label for="job-autocomplete">Job role</label>
 		<small class="form-text text-muted">Can't find it? Try describing it differently and select the closest match</small>
 	   	<input type="text" id="job-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
@@ -143,11 +143,18 @@ win £300 in a free prize draw]</strong></p>
   
   <script>
 	$(document).ready(function(){
-    $("#employment-status").change(function(){
-        var selectedEmployment = $(this).children("option:selected").val();
-        console.log(selectedEmployment);
-    });
-});
+		var selectedEmployment = null;
+		var employedStatus = false;
+		$("#employment-status").change(function(){
+			selectedEmployment = $(this).children("option:selected").val();
+			if(selectedEmployment == 'full' || selectedEmployment == 'part' || selectedEmployment == 'self') { 
+				employedStatus = true; }
+			else {
+				employedStatus = false; }
+			console.log(employedStatus);
+
+		});
+	});
 	  
 	  
 	  
