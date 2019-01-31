@@ -153,13 +153,15 @@
 				employedStatus = true;
                 		completed = false;
 				$('.employed-field').removeClass('d-none');
-                $('.complete-message').addClass('d-none');
+                		$('.complete-message').addClass('d-none');
+				$('.typeahead').val('');
 			}
 			else {
 				employedStatus = false;
                 		completed = true;
 				$('.employed-field').addClass('d-none');
                 		$('.complete-message').removeClass('d-none');
+				$('.typeahead').val('');
 			}
 		});
         $('#form-job').change(function() {
