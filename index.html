@@ -31,14 +31,13 @@
 
     <!-- Grid column -->
     <div class="col-md-9 col-lg-7 col-xl-5">
-	<p><strong>[This is some intro text asking recipients to complete the prototype and the survey for their chance to
-win £300 in a free prize draw]</strong></p>
+	<p><strong>[This is some intro text asking recipients to complete the prototype and the survey for their chance to win £300 in a free prize draw]</strong></p>
 	    
 	    
       <!--Form without header-->
       <div class="card">
 
-        <div class="card-body mx-4">
+        <div class="card-body">
 
           <!--Header-->
 
@@ -79,9 +78,11 @@ win £300 in a free prize draw]</strong></p>
       </div>
       <!--/Form without header-->
 
+    <div class="form-group d-none complete-message" id="form-complete">
 	    <p><strong>Thank you for your time.</strong></p>
 	    <p><strong>Now please complete our <a href="#">survey</a> for you chance to win £300</strong></p>
-	    
+    </div>
+        
     </div>
     <!-- Grid column -->
 
@@ -145,18 +146,40 @@ win £300 in a free prize draw]</strong></p>
 	$(document).ready(function(){
 		var selectedEmployment = null;
 		var employedStatus = false;
+        var completed = false;
 		$('#employment-status').change(function(){
 			selectedEmployment = $(this).children("option:selected").val();
 			if(selectedEmployment == 'full' || selectedEmployment == 'part' || selectedEmployment == 'self') { 
 				employedStatus = true;
+                completed = false;
 				$('.employed-field').removeClass('d-none');
+                $('.complete-message').addClass('d-none');
 			}
 			else {
 				employedStatus = false;
+                completed = true;
 				$('.employed-field').addClass('d-none');
+                $('.complete-message').removeClass('d-none');
 			}
-			console.log(employedStatus);
 		});
+        $('#form-job').change(function() {
+          var current = $(this).typeahead("getActive");
+          if (current) {
+            // Some item from your model is active!
+            if (current.name == $input.val()) {
+              // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
+                completed = true;
+                $('.complete-message').removeClass('d-none');
+            } else {
+              // This means it is only a partial match, you can either add a new item
+              // or take the active if you don't want new items
+                completed = false;
+                $('.complete-message').addClass('d-none');
+            }
+          } else {
+            // Nothing is active so it is a new value (or maybe empty value)
+          }
+        });
 	});
 	  
 	  
