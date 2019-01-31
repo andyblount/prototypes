@@ -136,6 +136,11 @@
   <script type="text/javascript" src="js/bootstrap3-typeahead.min.js"></script>
   
   <script>
+  var industry = [
+  {
+    name: "Academia"
+  };
+	  
   var jobs = [
   {
     name: "AA worker"
@@ -2197,8 +2202,12 @@
   }
 ];
 
-
     $('#industry-autocomplete').typeahead({
+      source: industry,
+      fitToElement: true,
+	items: 'all'
+    });
+    $('#jobs-autocomplete').typeahead({
       source: jobs,
       fitToElement: true,
 	items: 'all'
