@@ -11,7 +11,7 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="css/mdb.min.css" rel="stylesheet">
+  <!--<link href="css/mdb.min.css" rel="stylesheet">-->
   <!-- Your custom styles (optional) -->
   <link href="css/style.css" rel="stylesheet">
 </head>
@@ -60,13 +60,13 @@
             </div>
 
             <div class="md-form pb-3">
-	    	<label for="form-autocomplete" class="active">What industry do you work in?</label>
-	   	<input type="text" id="industry-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
+	    	<label for="industry-autocomplete" class="active">What industry do you work in?</label>
+	   	<input type="text" id="industry-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 		  
 	<div class="md-form pb-3">
-	    	<label for="form-autocomplete" class="active">Job role</label>
-	   	<input type="text" id="job-autocomplete" class="form-control mdb-autocomplete typeahead" data-provide="typeahead" autocomplete="off">
+	    	<label for="job-autocomplete" class="active">Job role</label>
+	   	<input type="text" id="job-autocomplete" class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 
 
@@ -131,7 +131,7 @@
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="js/bootstrap.min.js"></script>
   <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!--<script type="text/javascript" src="js/mdb.min.js"></script>-->
   <!-- Bootstrap typeahead -->
   <script type="text/javascript" src="js/bootstrap3-typeahead.min.js"></script>
   
@@ -2198,7 +2198,7 @@
 ];
 
 
-    $('.typeahead').typeahead({
+    $('#industry-autocomplete').typeahead({
       source: jobs,
       fitToElement: true,
 	items: 'all'
