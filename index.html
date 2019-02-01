@@ -38,7 +38,7 @@
 
 	    
       <!--Form without header-->
-      <div class="card bg-light mb-4">
+      <div class="card bg-light mb-20">
 
         <div class="card-body">
 
@@ -47,7 +47,7 @@
 
           <!--Body-->
           <form>
-            <div class="form-group" id="form-employment-status">
+            <div class="form-group mb-4" id="form-employment-status">
 	  	<label for="employment-status"><strong>What’s your employment status?</strong></label>
 	    	<select id="employment-status" class="form-control">
 			<option value="" disabled selected>- Please select -</option>    
@@ -62,13 +62,13 @@
 		</select>
             </div>
 
-            <div class="form-group d-none employed-field" id="form-industry">
+            <div class="form-group mb-4 d-none employed-field" id="form-industry">
 	    	<label for="industry-autocomplete"><strong>What industry do you work in?</strong><br/>
 		<small class="form-text text-muted">Can’t find it? Try describing it differently and select the closest match</small></label>
 	   	<input type="text" id="industry-autocomplete" placeholder="Start typing to search industry..." data-hj-whitelist  class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 		  
-	<div class="form-group d-none employed-field" id="form-job">
+	<div class="form-group mb-4 d-none employed-field" id="form-job">
 	    	<label for="job-autocomplete"><strong>What’s your job role?</strong><br/>
 		<small class="form-text text-muted">Can’t find it? Try describing it differently and select the closest match</small></label>
 	   	<input type="text" id="job-autocomplete" placeholder="Start typing to search job role..." data-hj-whitelist  class="form-control typeahead" data-provide="typeahead" autocomplete="off">
