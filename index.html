@@ -78,14 +78,6 @@
 
       </div>
       <!--/Form without header-->
-
-    <div class="card d-none complete-message mb-4" id="form-complete">
-	<div class="card-body">
-	    <h6 class="card-title">Thank you for your time</h6>
-	    <p class="card-text">Now please complete our survey for you chance to win £300</p>
-	    <a href="#" class="btn btn-primary">Enter survey</a>
-	  </div>
-    </div>
         
     </div>
     <!-- Grid column -->
@@ -93,6 +85,26 @@
   </div>
   <!-- Grid row -->
 
+	<div class="modal" tabindex="-1" role="dialog" id="surveyModal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+		<h5 class="modal-title">Modal title</h5>
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		  <span aria-hidden="true">&times;</span>
+		</button>
+	      </div>
+	      <div class="modal-body">
+		<p>Now please complete our survey for you chance to win £300</p>
+	      </div>
+	      <div class="modal-footer">
+		<button type="button" class="btn btn-primary">Enter survey</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>  
+	  
+	  
 </div>
   
   
@@ -188,12 +200,12 @@
             if (current.name == $('#job-autocomplete').val()) {
               // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
                 completed = true;
-                $('.complete-message').removeClass('d-none');
+                $('#surveyModal').modal('show');
             } else {
               // This means it is only a partial match, you can either add a new item
               // or take the active if you don't want new items
                 completed = false;
-                $('.complete-message').addClass('d-none');
+                $('#surveyModal').modal('hide');
             }
           } else {
             // Nothing is active so it is a new value (or maybe empty value)
