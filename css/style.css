@@ -2,3 +2,13 @@
 @media (min-width: 992px) {
   .dropdown-menu { max-height:300px; overflow:auto; }
 }
+
+.smcx-embed {
+    width: 100%;
+    max-width: 100%;
+}
+
+.smcx-embed>.smcx-iframe-container {
+    width: 100%;
+    max-width: 100%;
+}
