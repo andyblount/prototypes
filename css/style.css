@@ -5,10 +5,10 @@
 
 .smcx-embed {
     width: 100%;
-    max-width: 100%;
+    max-width: 100% !important;
 }
 
 .smcx-embed>.smcx-iframe-container {
     width: 100%;
-    max-width: 100%;
+    max-width: 100% !important;
 }
