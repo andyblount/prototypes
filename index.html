@@ -32,9 +32,9 @@
     <!-- Grid column -->
     <div class="col-md-9 col-lg-7 col-xl-5">
     	<h1>Welcome to our survey</h1>
-	<p>We're a UK bank, and recently, our customers told us they were finding it a bit tricky applying for one of our accounts online, so, we spent some time trying to make the application forms simpler. This two-part test will help us see how well we’ve done.</p>
-    	<p>It’s important you understand that it’s totally anonymous. When all the results are in, our people are just going to crunch the numbers, not look at your individual answers. You’ll need about 5-10 minutes to finish the two parts, and when you get to the end we’ll enter you in our £300 prize draw.</p>    
-    	<p>Before you begin, we'd like you to imagine you're applying for a current account online. You've already filled in the section about your personal details. Now you've got to the section on your employment...</p>
+	<p>We’re a UK bank. Recently we’ve been trying to make it easier to apply for our accounts online. This two-part test will help us see how well we’ve done. You’ll need about 5-10 minutes to finish it, and when you get to the end we’ll enter you into our £300 prize draw.</p>
+    	<p>It’s important you understand that it’s totally anonymous. When all the results are in, our people are just going to crunch the numbers, not look at your individual answers.</p>    
+    	<p>Before you begin, we'd like you to imagine you're applying for a current account online. You've already filled in the section about your personal details. The next bit is about your employment...</p>
 
 	    
       <!--Form without header-->
@@ -48,7 +48,7 @@
           <!--Body-->
           <form>
             <div class="form-group" id="form-employment-status">
-	  	<label for="employment-status"><strong>Please select your emplyment status</strong></label>
+	  	<label for="employment-status"><strong>What’s your employment status?</strong></label>
 	    	<select id="employment-status" class="form-control">
 			<option value="" disabled selected>- Please select -</option>    
 			<option value="full">Full time</option>    
@@ -64,13 +64,13 @@
 
             <div class="form-group d-none employed-field" id="form-industry">
 	    	<label for="industry-autocomplete"><strong>What industry do you work in?</strong><br/>
-		<small class="form-text text-muted">Can't find it? Just choose the one that fits best</small></label>
+		<small class="form-text text-muted">Can’t find it? Try describing it differently and select the closest match</small></label>
 	   	<input type="text" id="industry-autocomplete" placeholder="Start typing to search industry..." data-hj-whitelist  class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 		  
 	<div class="form-group d-none employed-field" id="form-job">
-	    	<label for="job-autocomplete"><strong>Job role</strong><br/>
-		<small class="form-text text-muted">Can't find it? Try describing it differently and select the closest match</small></label>
+	    	<label for="job-autocomplete"><strong>What’s your job role?</strong><br/>
+		<small class="form-text text-muted">Can’t find it? Try describing it differently and select the closest match</small></label>
 	   	<input type="text" id="job-autocomplete" placeholder="Start typing to search job role..." data-hj-whitelist  class="form-control typeahead" data-provide="typeahead" autocomplete="off">
             </div>
 
