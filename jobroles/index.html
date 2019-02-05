@@ -5,15 +5,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Prototypes</title>
+  <title>Welcome to our survey</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <!--<link href="css/mdb.min.css" rel="stylesheet">-->
+  <!--<link href="/css/mdb.min.css" rel="stylesheet">-->
   <!-- Your custom styles (optional) -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,15 +34,18 @@
     	<h1>Welcome to our survey</h1>
 	<p>We’re a UK building society. Recently we’ve been trying to make it easier for customers to apply for our accounts online. This two-part survey will help us see how well we’ve done.</p>
   
-	<p class="mb-0">Here’s what you need to know:</p>
+	    <p class="mb-0"><strong>Here’s what you need to know:</strong></p>
 	<ul>
 		<li>It'll take about 10 minutes.</li>
 		<li>There’s a link to part two at the end of part one.</li>
 		<li>When you’ve completed both parts, you’ll be entered into our £300 prize draw.</li>
 	</ul>
 	   
-	<h5 class="mb-0">Part one</h5>
-	<p>Before you start, take a moment to imagine you’re applying for a current account online. You've already filled in the section about your personal details. The next bit is about your employment...</p>
+	    <hr/>
+	    
+	<h5>Part one</h5>
+	<img src="/img/png/online application.jpeg" class="rounded float-left" alt="">
+	    <p>Before you start, take a moment to imagine you’re applying for a current account online. You've already filled in the section about your personal details. The next bit is about your employment...</p>
 	    
       <!--Form without header-->
       <div class="card bg-light">
@@ -86,83 +89,43 @@
         </div>
 
       </div>
-	    <br/><br/><br/><br/>
+	    <br/>
+	    
+	<div class="card bg-light d-none" id="surveyDone">
+	  <div class="card-body">
+	    <h5 class="card-title"><i class="fas fa-check" style="color: #51cf66;"></i> That’s part one done</h5>
+		  <a href="https://www.surveymonkey.co.uk/r/R5FKRPD" class="btn btn-success">Continue to part two</a>
+	  </div>
+	</div>
+	    
+	    
+	    <br/><br/>
+	    
+	    
+	    
       <!--/Form without header-->
         
     </div>
     <!-- Grid column -->
-
+	  
+	
   </div>
   <!-- Grid row -->
 
-	<div class="modal fade" tabindex="-1" role="dialog" id="surveyModal" data-backdrop="static" data-keyboard="false">
-	  <div class="modal-dialog modal-sm" role="document">
-	    <div class="modal-content">
-	    <div class="modal-body">
-		    <p><strong>That’s part one done. Now, let’s go to part two</strong></p>
-	      </div>
-	      <div class="modal-footer">
-		<a href="https://www.surveymonkey.co.uk/r/R5FKRPD" class="btn btn-success">Continue</a>
-	      </div>
-	    </div>
-	  </div>
-	</div>  
-	  
 	  
 </div>
-  
-  
-  
-  <!-- SCRIPTS -->
-  <script src="https://www.gstatic.com/firebasejs/5.7.1/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase-firestore.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyCblqxq12CtpGxD1WgH5MHw5MEz5BQ-O0c",
-      authDomain: "ab-prototypes.firebaseapp.com",
-      databaseURL: "https://ab-prototypes.firebaseio.com",
-      projectId: "ab-prototypes",
-      storageBucket: "ab-prototypes.appspot.com",
-      messagingSenderId: "1057358345194"
-    };
-    firebase.initializeApp(config);
-    // Initialize Cloud Firestore through Firebase
-    var db = firebase.firestore();
-    // Disable deprecated features
-    db.settings({ timestampsInSnapshots: true });
-    
-    var docRef = db.collection("prototypes").doc("Apple");
-    docRef.get().then(function(doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-            var data = doc.data();
-          
-            $('.prototype-name').html(data.name);
-            $('.prototype-intro').html(data.intro);
-
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch(function(error) {
-        console.log("Error getting document:", error);
-    });
-  </script>
+ 
  
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
+  <script type="text/javascript" src="/js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <!--<script type="text/javascript" src="js/mdb.min.js"></script>-->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   <!-- Bootstrap typeahead -->
-  <script type="text/javascript" src="js/bootstrap3-typeahead.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap3-typeahead.min.js"></script>
   <!-- Hotjar -->
-<!-- Hotjar Tracking Code for andyblount.com -->
+<!-- Hotjar Tracking Code for shivvy.com -->
 <script>
     (function(h,o,t,j,a,r){
 	h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -186,14 +149,14 @@
 				employedStatus = true;
                 		completed = false;
 				$('.employed-field').removeClass('d-none');
-                		$('#surveyModal').modal('hide');
+                		$('#surveyDone').addClass('d-none');
 				$('.typeahead').val('');
 			}
 			else {
 				employedStatus = false;
                 		completed = true;
 				$('.employed-field').addClass('d-none');
-                		$('#surveyModal').modal('show');
+                		$('#surveyDone').removeClass('d-none');
 				$('.typeahead').val('');
 			}
 		});
@@ -204,12 +167,12 @@
             if (current.name == $('#job-autocomplete').val()) {
               // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
                 completed = true;
-                $('#surveyModal').modal('show');
+                $('#surveyDone').removeClass('d-none');
             } else {
               // This means it is only a partial match, you can either add a new item
               // or take the active if you don't want new items
                 completed = false;
-                $('#surveyModal').modal('hide');
+                $('#surveyDone').addClass('d-none');
             }
           } else {
             // Nothing is active so it is a new value (or maybe empty value)
