@@ -88,7 +88,7 @@
       </div>
 	    <br/><br/>
 	    
-	<div class="card hide" id="surveyDone">
+	<div class="card d-none" id="surveyDone">
 	  <div class="card-body">
 	    <h5 class="card-title">That’s part one done. Now, let’s go to part two</h5>
 	    <a href="https://www.surveymonkey.co.uk/r/R5FKRPD" class="btn btn-success">Continue</a>
@@ -186,15 +186,15 @@
 			if(selectedEmployment == 'full' || selectedEmployment == 'part' || selectedEmployment == 'self') { 
 				employedStatus = true;
                 		completed = false;
-				$('.employed-field').removeClass('d-none');
-                		$('#surveyDone').addClass('hide');
+				$('.employed-field').removeClass('d-d-none');
+                		$('#surveyDone').addClass('d-none');
 				$('.typeahead').val('');
 			}
 			else {
 				employedStatus = false;
                 		completed = true;
-				$('.employed-field').addClass('d-none');
-                		$('#surveyDone').removeClass('hide');
+				$('.employed-field').addClass('d-d-none');
+                		$('#surveyDone').removeClass('d-none');
 				$('.typeahead').val('');
 			}
 		});
@@ -205,12 +205,12 @@
             if (current.name == $('#job-autocomplete').val()) {
               // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
                 completed = true;
-                $('#surveyDone').removeClass('hide');
+                $('#surveyDone').removeClass('d-none');
             } else {
               // This means it is only a partial match, you can either add a new item
               // or take the active if you don't want new items
                 completed = false;
-                $('#surveyDone').addClass('hide');
+                $('#surveyDone').addClass('d-none');
             }
           } else {
             // Nothing is active so it is a new value (or maybe empty value)
