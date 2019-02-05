@@ -96,7 +96,7 @@
   <!-- Grid row -->
  
 	  
-<div class="card" id="surveyModal">
+<div class="card hide" id="surveyDone">
   <div class="card-body">
     <h5 class="card-title">That’s part one done. Now, let’s go to part two</h5>
     <a href="https://www.surveymonkey.co.uk/r/R5FKRPD" class="btn btn-success">Continue</a>
@@ -181,14 +181,14 @@
 				employedStatus = true;
                 		completed = false;
 				$('.employed-field').removeClass('d-none');
-                		$('#surveyModal').modal('hide');
+                		$('#surveyDone').addClass('hide');
 				$('.typeahead').val('');
 			}
 			else {
 				employedStatus = false;
                 		completed = true;
 				$('.employed-field').addClass('d-none');
-                		$('#surveyModal').modal('show');
+                		$('#surveyDone').removeClass('hide');
 				$('.typeahead').val('');
 			}
 		});
@@ -199,12 +199,12 @@
             if (current.name == $('#job-autocomplete').val()) {
               // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
                 completed = true;
-                //$('#surveyModal').modal('show');
+                $('#surveyDone').removeClass('hide');
             } else {
               // This means it is only a partial match, you can either add a new item
               // or take the active if you don't want new items
                 completed = false;
-                //$('#surveyModal').modal('hide');
+                $('#surveyDone').addClass('hide');
             }
           } else {
             // Nothing is active so it is a new value (or maybe empty value)
