@@ -94,19 +94,14 @@
 
   </div>
   <!-- Grid row -->
-
-	<div class="modal fade" tabindex="-1" role="dialog" id="surveyModal" data-backdrop="static" data-keyboard="false">
-	  <div class="modal-dialog modal-sm" role="document">
-	    <div class="modal-content">
-	    <div class="modal-body">
-		    <p><strong>That’s part one done. Now, let’s go to part two</strong></p>
-	      </div>
-	      <div class="modal-footer">
-		<a href="https://www.surveymonkey.co.uk/r/R5FKRPD" class="btn btn-success">Continue</a>
-	      </div>
-	    </div>
-	  </div>
-	</div>  
+ 
+	  
+<div class="card" id="surveyModal">
+  <div class="card-body">
+    <h5 class="card-title">That’s part one done. Now, let’s go to part two</h5>
+    <a href="https://www.surveymonkey.co.uk/r/R5FKRPD" class="btn btn-success">Continue</a>
+  </div>
+</div>
 	  
 	  
 </div>
@@ -204,12 +199,12 @@
             if (current.name == $('#job-autocomplete').val()) {
               // This means the exact match is found. Use toLowerCase() if you want case insensitive match.
                 completed = true;
-                $('#surveyModal').modal('show');
+                //$('#surveyModal').modal('show');
             } else {
               // This means it is only a partial match, you can either add a new item
               // or take the active if you don't want new items
                 completed = false;
-                $('#surveyModal').modal('hide');
+                //$('#surveyModal').modal('hide');
             }
           } else {
             // Nothing is active so it is a new value (or maybe empty value)
