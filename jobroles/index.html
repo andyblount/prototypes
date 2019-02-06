@@ -167,7 +167,7 @@ $(document).ready(function(){
 	});
 	
 	
-        $("#job-autocomplete").bind('input', function(){
+        $("#job-autocomplete").bind('change keypress paste focus textInput input', function(){
 		var jobAutocompleteVal = $("#job-autocomplete").val();
 		var enteredValInJobsArray = $.inArray(jobAutocompleteVal, jobs) !== -1;
 		
