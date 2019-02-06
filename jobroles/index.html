@@ -139,7 +139,6 @@ var jobs=["AA worker","Account Executive","Account manager","Accountant","Actor"
 	
 <script>	
 $(document).ready(function(){
-	var jobAutocompleteVal;
 	
 	$("#industry-autocomplete").autocomplete({
 	   source:[industry], limit:1000
@@ -148,7 +147,12 @@ $(document).ready(function(){
 	$("#job-autocomplete").autocomplete({
 	   source:[jobs], limit:1000
 	}).on('selected.xdsoft', function(e, data) {
-	    jobAutocompleteVal = data; 
+	    	var jobAutocompleteVal = data; 
+		var enteredValInJobsArray = $.inArray(jobAutocompleteVal, jobs) !== -1;
+		if(enteredValInJobsArray) {
+			// all finished
+			$('#surveyDone').removeClass('d-none');
+		}
 	});
 		
 	var selectedEmployment = null;
@@ -169,19 +173,7 @@ $(document).ready(function(){
 			$('.typeahead').val('');
 		}
 	});
-	
-	
-        $("#job-autocomplete").bind('change keypress paste focus textInput input', function(){
-		var enteredValInJobsArray = $.inArray(jobAutocompleteVal, jobs) !== -1;
-		
-		if(enteredValInJobsArray) {
-			// all finished
-			$('#surveyDone').removeClass('d-none');
-		}
-		else {
-			// finished but no match	
-		}
-        });
+
 });
 	  
 
