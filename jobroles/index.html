@@ -938,22 +938,10 @@
 $(function() {
 
 $("#industry-autocomplete").autocomplete({
-   source:[industry],
- getTitle:function(item){
-  return item['name']
- },
- getValue:function(item){
-  return item['name']
- }
+   source:[industry]
 }); 
 $("#job-autocomplete").autocomplete({
-   source:[jobs],
- getTitle:function(item){
-  return item.name
- },
- getValue:function(item){
-  return item.name
- }
+   source:[jobs]
 });
 	
 });
