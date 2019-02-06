@@ -938,10 +938,12 @@
 $(function() {
 
 $("#industry-autocomplete").autocomplete({
-   source:[industry]
+   source:[industry],
+	limit:1000
 }); 
 $("#job-autocomplete").autocomplete({
-   source:[jobs]
+   source:[jobs],
+	limit:1000
 });
 	
 });
