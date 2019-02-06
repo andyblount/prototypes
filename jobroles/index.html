@@ -165,8 +165,8 @@ $(document).ready(function(){
 		}
 	});
 	
-	var $jobAutocomplete = $('#job-autocomplete').val();
-	var enteredValInJobsArray = $.inArray($jobAutocomplete, jobs) !== -1;
+	var jobAutocompleteVal = $('#job-autocomplete').val();
+	var enteredValInJobsArray = $.inArray(jobAutocompleteVal, jobs) !== -1;
 	
         $('#job-autocomplete').change(function() {
 		if(enteredValInJobsArray) {
