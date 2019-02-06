@@ -166,10 +166,11 @@ $(document).ready(function(){
 		}
 	});
 	
-	var jobAutocompleteVal = $('#job-autocomplete').val();
-	var enteredValInJobsArray = $.inArray(jobAutocompleteVal, jobs) !== -1;
 	
-        $('#job-autocomplete').change(function() {
+        $("#job-autocomplete").change(function() {
+		var jobAutocompleteVal = $("#job-autocomplete").val();
+		var enteredValInJobsArray = $.inArray(jobAutocompleteVal, jobs) !== -1;
+		
 		if(enteredValInJobsArray) {
 			// all finished
 			$('#surveyDone').removeClass('d-none');
