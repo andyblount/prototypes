@@ -167,7 +167,7 @@ $(document).ready(function(){
 	});
 	
 	
-        $("#job-autocomplete").change(function() {
+        $("#job-autocomplete").bind('input', function(){
 		var jobAutocompleteVal = $("#job-autocomplete").val();
 		var enteredValInJobsArray = $.inArray(jobAutocompleteVal, jobs) !== -1;
 		
