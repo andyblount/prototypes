@@ -2415,6 +2415,10 @@
 	items: 'all'
     });
     */
+	  
+
+$(function() {
+
 $("#industry-autocomplete").autocomplete({
    source:[industry],
  getTitle:function(item){
@@ -2432,7 +2436,11 @@ $("#job-autocomplete").autocomplete({
  getValue:function(item){
   return item.name
  }
-}); 
+});
+	
+});
+	  
+ 
 	  
   </script>
 </body>
