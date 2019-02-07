@@ -53,8 +53,11 @@ a {
   line-height: 24px;
   padding:0;
 }
-.btn-primary .fa, .btn-link .fa {
+.btn-primary .fa, .btn-link .fa-chevron-right {
   margin-left: 6px;
+}
+.btn-primary .fa, .btn-link .fa-chevron-left {
+  margin-right: 6px;
 }
 
 ul.list-unstyled li {
