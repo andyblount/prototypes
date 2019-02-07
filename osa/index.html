@@ -10,8 +10,10 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
+  <!-- Global custom styles -->
   <link href="../css/style.css" rel="stylesheet">
+  <!-- Prototype custom styles -->
+  <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,22 +24,23 @@
     <div class="row">
 
       <!-- Grid column -->
-      <div class="col-sm-12 col-md-10 col-lg-9 col-xl-6">
-        <header>
-          Nationwide
+      <div id="osa-iframe">
+        <header class="header clearfix">
+          <img src="img/nationwide.png" class="nationwide-logo float-left" width="85" height="50" alt="Nationwide" />
+          <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" width="81" height="26" alt="Verified by Visa" />
         </header>
-        <content>
+        <section class="section">
           <h1>We need to check it's really you</h1>
           <p>Choose how you'd like us to verify you:</p>
-          <ul>
-            <li><a href="" class="btn btn-primary">Use the Nationwide app</a></li>
-            <li><a href="" class="btn btn-primary">Get a code by text</a></li>
-            <li><a href="" class="btn btn-primary">Use a card reader</a></li>
+          <ul class="list-unstyled">
+            <li><a href="" class="btn btn-primary">Use the Nationwide app <i class="fa fa-chevron-right"></i></a></li>
+            <li><a href="" class="btn btn-link">Get a code by text <i class="fa fa-chevron-right"></i></a></li>
+            <li><a href="" class="btn btn-link">Use a card reader <i class="fa fa-chevron-right"></i></a></li>
           </ul>
-        </content>
-        <footer>
-          <a href="" class="btn btn-primary">Help</a>
-          <a href="" class="btn btn-primary">Cancel</a>
+        </section>
+        <footer class="footer clearfix">
+          <a href="" class="btn btn-link float-left">Cancel</a>
+          <a href="" class="btn btn-link float-right">Help</a>
         </footer>
       </div>
       <!-- Grid column -->
