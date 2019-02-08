@@ -1,3 +1,7 @@
+body {
+  height:100%;
+}
+
 #osa-iframe {
   width:320px;
   height:400px;
@@ -15,7 +19,7 @@ h1 {
   color: #222;
 }
 
-p {
+p,li,label {
   font-family: 'NBS-Light', 'NBS Light';
   font-weight: 400;
   font-style: normal;
@@ -32,6 +36,12 @@ a {
   color: #004A8F;
   line-height: 24px;
 }
+
+strong {
+  font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium';
+  font-weight: 700;
+}
+
 .btn-primary {
   font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium';
   font-weight: 700;
@@ -60,8 +70,12 @@ a {
   margin-right: 6px;
 }
 
-ul.list-unstyled li {
+.list-unstyled li {
   margin-bottom: 10px;
+}
+
+.list-unstyled.rca-instructions li {
+  margin-bottom: 8px;
 }
 
 .alert-info {
@@ -77,11 +91,28 @@ ul.list-unstyled li {
   text-decoration:underline;
 }
 
+.form label {
+  margin-bottom: 0;
+  font-weight: 700;
+}
+.form input {
+  border-radius:0;
+}
+.forminline input {
+  width:50%;
+  padding-top: 0;
+  padding-bottom: 0;
+  height: auto;
+  line-height: 30px;
+}
+.forminline .btn {
+  line-height: 18px;
+}
 
 .page-wrap {
   min-height: 100%;
   /* equal to footer height */
-  margin-bottom: -66px;
+  margin-bottom: -50px;
 }
 .page-wrap:after {
   content: "";
@@ -108,5 +139,7 @@ ul.list-unstyled li {
 .footer {
   background: #f2f2f2;
   width: 100%;
+}
+.footer, .page-wrap:after {
   height: 50px;
 }
