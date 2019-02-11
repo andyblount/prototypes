@@ -11,7 +11,11 @@ body {
 }
 
 h1 {
+<<<<<<< HEAD
   font-family: 'NBS-Bold', 'NBS Bold', 'NBS Medium Bold', 'NBS Medium';
+=======
+  font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium', Arial, "Helvetica Neue", Helvetica, sans-serif;;
+>>>>>>> 8a885c9b8e1c53c99844c8149fc5dd2f68a19f76
   font-weight: 700;
   font-style: normal;
   font-size: 23px;
@@ -20,7 +24,7 @@ h1 {
 }
 
 p,li,label {
-  font-family: 'NBS-Light', 'NBS Light';
+  font-family: 'NBS-Light', 'NBS Light', Arial, "Helvetica Neue", Helvetica, sans-serif;;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
@@ -29,7 +33,7 @@ p,li,label {
 }
 
 a {
-  font-family: 'NBS-Light', 'NBS Light';
+  font-family: 'NBS-Light', 'NBS Light', Arial, "Helvetica Neue", Helvetica, sans-serif;;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
@@ -38,12 +42,20 @@ a {
 }
 
 strong {
+<<<<<<< HEAD
   font-family: 'NBS-Bold', 'NBS Bold', 'NBS Medium Bold', 'NBS Medium';
+=======
+  font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium', Arial, "Helvetica Neue", Helvetica, sans-serif;;
+>>>>>>> 8a885c9b8e1c53c99844c8149fc5dd2f68a19f76
   font-weight: 700;
 }
 
 .btn-primary {
+<<<<<<< HEAD
   font-family: 'NBS-Bold', 'NBS Bold', 'NBS Medium Bold', 'NBS Medium';
+=======
+  font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium', Arial, "Helvetica Neue", Helvetica, sans-serif;;
+>>>>>>> 8a885c9b8e1c53c99844c8149fc5dd2f68a19f76
   font-weight: 700;
   font-style: normal;
   font-size: 18px;
@@ -55,7 +67,7 @@ strong {
   border-width:0;
 }
 .btn-link {
-  font-family: 'NBS-Light', 'NBS Light';
+  font-family: 'NBS-Light', 'NBS Light', Arial, "Helvetica Neue", Helvetica, sans-serif;;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
