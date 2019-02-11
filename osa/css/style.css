@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium';
+  font-family: 'NBS-Bold', 'NBS Bold', 'NBS Medium Bold', 'NBS Medium';
   font-weight: 700;
   font-style: normal;
   font-size: 23px;
@@ -38,12 +38,12 @@ a {
 }
 
 strong {
-  font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium';
+  font-family: 'NBS-Bold', 'NBS Bold', 'NBS Medium Bold', 'NBS Medium';
   font-weight: 700;
 }
 
 .btn-primary {
-  font-family: 'NBS-Bold', 'NBS Medium Bold', 'NBS Medium';
+  font-family: 'NBS-Bold', 'NBS Bold', 'NBS Medium Bold', 'NBS Medium';
   font-weight: 700;
   font-style: normal;
   font-size: 18px;
