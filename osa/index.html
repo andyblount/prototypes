@@ -14,7 +14,7 @@
   <!-- Global custom styles -->
   <link href="../css/style.css" rel="stylesheet">
   <!-- NBS fonts -->
-  <link href="css/fonts.css" rel="stylesheet">  
+  <link href="css/fonts.css" rel="stylesheet">
   <!-- Prototype custom styles -->
   <link href="css/style.css" rel="stylesheet">
 </head>
@@ -46,7 +46,10 @@
       </div>
       <footer class="footer clearfix">
         <a href="" class="btn btn-link float-left">Cancel</a>
-        <a href="" class="btn btn-link float-right">Help</a>
+        <a href="" class="btn btn-link float-right" id="helpButton">Help</a>
+        <div class="help-popup d-none" id="helpPopup">
+          <h1>Help</h1>
+        </div>
       </footer>
 
       </div>
@@ -62,6 +65,8 @@
   <script type="text/javascript" src="../js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script type="text/javascript" src="js/scripts.js"></script>
   <!-- Hotjar -->
   <!-- Hotjar Tracking Code for shivvy.com -->
   <script>

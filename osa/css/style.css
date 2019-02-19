@@ -143,3 +143,9 @@ strong {
 .footer, .page-wrap:after {
   height: 50px;
 }
+
+.help-popup {
+  width: 100%;
+  height: 100%;
+  background:#f1f1f1;
+}
