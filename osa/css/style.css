@@ -243,7 +243,8 @@ strong, .badge, .form label {
   right: 0;
 }
 
-.rca-instructions {
+.auth-promo {
+  padding-left: 30px;
 }
 .rca-instructions li {
   margin-bottom: 5px;
