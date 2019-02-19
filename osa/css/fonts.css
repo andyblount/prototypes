@@ -2,8 +2,8 @@
   font-family: 'NBSLight';
   src: url('../fonts/NBS/nbs-light-webfont.eot');
   src: url('../fonts/NBS/nbs-light-webfont.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/NBS/nbs-light-webfont.woff2') format('woff2'),
-      url('../fonts/NBS/nbs-light-webfont.woff') format('woff'),
+       url('../fonts/NBS/nbs-light-webfont.woff2') format('woff2'),
+       url('../fonts/NBS/nbs-light-webfont.woff') format('woff'),
        url('../fonts/NBS/nbs-light-webfont.ttf') format('truetype');
 }
 
@@ -11,7 +11,7 @@
   font-family: 'NBSBold';
   src: url('../fonts/NBS/nbs-bold-webfont.eot');
   src: url('../fonts/NBS/nbs-bold-webfont.eot?#iefix') format('embedded-opentype'),
-      url('../fonts/NBS/nbs-bold-webfont.woff2') format('woff2'),
-      url('../fonts/NBS/nbs-bold-webfont.woff') format('woff'),
+       url('../fonts/NBS/nbs-bold-webfont.woff2') format('woff2'),
+       url('../fonts/NBS/nbs-bold-webfont.woff') format('woff'),
        url('../fonts/NBS/nbs-bold-webfont.ttf') format('truetype');
 }
