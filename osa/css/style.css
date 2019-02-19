@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  font-family: 'NBS-Bold', 'NBS Bold', Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'NBSBold', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 23px;
@@ -20,7 +20,7 @@ h1 {
 }
 
 p,li,label {
-  font-family: 'NBS-Light', 'NBS Light', Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: 'NBSLight', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
