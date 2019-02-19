@@ -10,7 +10,7 @@ body {
   overflow-x: auto;
 }
 
-h1 {
+h1,h2,h3,h4,h5,h6 {
   font-family: 'NBSBold', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -49,7 +49,7 @@ strong {
   font-size: 18px;
   line-height: 24px;
   border-radius: 20px;
-  padding: 7px 20px 7px 24px;
+  padding: 7px 24px;
   background: #004A8F;
   color:#fff;
   border-width:0;
@@ -63,10 +63,12 @@ strong {
   line-height: 24px;
   padding:0;
 }
-.btn-primary .fa, .btn-link .fa-chevron-right {
+.btn-primary .fa-chevron-right, .btn-link .fa-chevron-right {
   margin-left: 6px;
+  margin-right: -6px;
 }
-.btn-primary .fa, .btn-link .fa-chevron-left {
+.btn-primary .fa-chevron-left, .btn-link .fa-chevron-left {
+  margin-left: 0;
   margin-right: 6px;
 }
 
@@ -113,6 +115,7 @@ strong {
   min-height: 100%;
   /* equal to footer height */
   margin-bottom: -50px;
+  position: relative;
 }
 .page-wrap:after {
   content: "";
@@ -139,13 +142,46 @@ strong {
 .footer {
   background: #f2f2f2;
   width: 100%;
+  position: relative;
 }
 .footer, .page-wrap:after {
   height: 50px;
 }
 
-.help-popup {
-  width: 100%;
+.modal {
+  position: absolute;
+}
+.modal-dialog {
+  margin: 0;
   height: 100%;
-  background:#f1f1f1;
+}
+.modal-header {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.modal-title {
+  line-height: 27px;
+}
+.modal-body {
+  padding-top: 0.5rem;
+}
+.modal-content {
+  background: #f2f2f2;
+  height: 100%;
+  border-radius: 0;
+  border-width: 0;
+}
+.modal-content .btn-primary.d-block {
+  width: 100%;
+}
+.modal.fade .modal-dialog {
+  bottom: -400px;
+  opacity: 1;
+  -webkit-transition: bottom 0.3s ease-out;
+  -moz-transition: bottom 0.3s ease-out;
+  -o-transition: bottom 0.3s ease-out;
+  transition: bottom 0.3s ease-out;
+}
+.modal.fade.show .modal-dialog {
+  bottom: 0;
 }
