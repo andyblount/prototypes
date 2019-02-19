@@ -42,6 +42,16 @@ strong, .badge, .form label {
   font-weight: 700;
 }
 
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:focus,
+.btn-secondary:hover,
+.btn-secondary:not(:disabled):not(.disabled):active,
+.btn-secondary:focus {
+  text-decoration: underline;
+  box-shadow: 0 0 0 0.2rem #99B7D3;
+  background: #004A8F;
+}
 .btn-primary,
 .btn-secondary {
   font-family: 'NBSBold', Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -66,10 +76,16 @@ strong, .badge, .form label {
   color: #004A8F;
 }
 .btn-secondary:hover,
+.btn-secondary:not(:disabled):not(.disabled):active,
 .btn-secondary:focus {
-  background-color: #fff;
-  border-color: #222;
-  color: #222;
+  border-color: #004A8F;
+  color: #004A8F;
+  background: none;
+}
+
+.btn-link:hover,
+.btn-link:focus {
+  color: #0078C8;
 }
 .btn-link {
   font-family: 'NBSLight', Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -116,7 +132,7 @@ strong, .badge, .form label {
   background: #e5f1f9;
   border-width:0;
   border-radius:0;
-  padding:4px 12px 12px;
+  padding:8px 12px 12px;
 }
 .alert-info p {
   margin-bottom: 0;
@@ -203,7 +219,7 @@ strong, .badge, .form label {
   border-width: 0;
 }
 
-.modal.fade .modal-dialog {
+.modal.fade.up .modal-dialog {
   bottom: -400px;
   opacity: 1;
   -webkit-transition: bottom 0.3s ease-out;
@@ -211,8 +227,20 @@ strong, .badge, .form label {
   -o-transition: bottom 0.3s ease-out;
   transition: bottom 0.3s ease-out;
 }
-.modal.fade.show .modal-dialog {
+.modal.fade.up.show .modal-dialog {
   bottom: 0;
+}
+
+.modal.fade.right .modal-dialog {
+  right: -400px;
+  opacity: 1;
+  -webkit-transition: right 0.3s ease-out;
+  -moz-transition: right 0.3s ease-out;
+  -o-transition: right 0.3s ease-out;
+  transition: right 0.3s ease-out;
+}
+.modal.fade.right.show .modal-dialog {
+  right: 0;
 }
 
 .rca-instructions {

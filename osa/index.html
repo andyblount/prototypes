@@ -36,18 +36,131 @@
             <h1>We need to check it's really you</h1>
             <p>Choose how you'd like us to verify you:</p>
             <ul class="list-unstyled">
-              <li><a href="useapp.html" class="btn btn-primary d-block">Use the Nationwide app<i class="fa fa-chevron-right"></i></a></li>
-              <li><a href="usesms.html" class="btn btn-link">Get a code by text<i class="fa fa-chevron-right"></i></a></li>
-              <li><a href="useemail.html" class="btn btn-link">Get a code by email<i class="fa fa-chevron-right"></i></a></li>
-              <li><a href="userca.html" class="btn btn-link">Use a card reader<i class="fa fa-chevron-right"></i></a></li>
+              <!--<li><a href="useapp.html" class="btn btn-primary d-block">Use the Nationwide app<i class="fa fa-chevron-right"></i></a></li>-->
+              <!--<li><a href="usesms.html" class="btn btn-primary d-block">Get a code by text<i class="fa fa-chevron-right"></i></a></li>-->
+              <li><a href="userca.html" class="btn btn-primary d-block">Use a card reader<i class="fa fa-chevron-right"></i></a></li>
+              <!--<li><a href="useemail.html" class="btn btn-secondary d-block">Get a code by email<i class="fa fa-chevron-right"></i></a></li>-->
             </ul>
             <ul class="list-unstyled">
-              <li><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#appHelpModal">More ways to verify yourself</button></li>
+              <li><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authHelpModal">More ways to verify yourself</button></li>
             </ul>
           </section>
 
+          <section class="auth-help-popup">
+            <div class="modal fade up" tabindex="-1" role="dialog" id="authHelpModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">More ways to verify yourself</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Find out how to verify yourself in the future with one of these methods:</p>
+                    <ul class="list-unstyled">
+                      <!--<li><a href="useapp.html" class="btn btn-primary d-block">Use the Nationwide app<i class="fa fa-chevron-right"></i></a></li>-->
+                      <li><button type="button" class="btn btn-secondary d-block" data-toggle="modal" data-target="#authAppModal">Get the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-secondary d-block" data-toggle="modal" data-target="#authSmsModal">Register your mobile<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-secondary d-block" data-toggle="modal" data-target="#authEmailModal">Register your email<i class="fa fa-chevron-right"></i></button></li>
+                    </ul>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="auth-app-popup">
+            <div class="modal fade right" tabindex="-1" role="dialog" id="authAppModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Get the Nationwide app</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>The fastest way to verify yourself is by using the Nationwide Banking app using either your fingerprint or a code.</p>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-2 pl-0 pr-1">
+                          <img src="img/nwappicon.png" alt=""/>
+                        </div>
+                        <div class="col-10 pl-1 pr-0">
+                          <p>Search for the <strong>Nationwide Banking app</strong> in the app stores.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p>After you have registered the app you will be able to use it to verify yourself for future purchases.</p>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="auth-sms-popup">
+            <div class="modal fade right" tabindex="-1" role="dialog" id="authSmsModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Register your mobile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>If you would like to verify yourself with a code that we send to your mobile:</p>
+                    <ol>
+                      <li>Log into Internet Banking and update your contact details.</li>
+                      <li>Or phone us on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</li>
+                      <li>Or visit a Nationwide branch.</li>
+                    </ol>
+                    <p><strong>Please note:</strong> there will be a setup delay before you can verify yourself in this way.</p>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="auth-email-popup">
+            <div class="modal fade right" tabindex="-1" role="dialog" id="authEmailModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Register your email</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>If you would like to verify yourself with a code that we send to your email address:</p>
+                    <ol>
+                      <li>Log into Internet Banking and update your contact details.</li>
+                      <li>Or phone us on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</li>
+                      <li>Or visit a Nationwide branch.</li>
+                    </ol>
+                    <p><strong>Please note:</strong> there will be a setup delay before you can verify yourself in this way.</p>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section class="help-popup">
-            <div class="modal fade" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
+            <div class="modal fade up" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -64,9 +177,29 @@
               </div>
             </div>
           </section>
+
+          <section class="cancel-popup">
+            <div class="modal fade up" tabindex="-1" role="dialog" id="cancelModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>If you cancel, you will be taken back to the checkout.</p>
+                    <button type="button" class="btn btn-primary d-block" data-dismiss="modal">Yes, cancel</button>
+                    <button type="button" class="btn btn-secondary d-block" data-dismiss="modal">No, don't cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
       </div>
       <footer class="footer clearfix">
-        <a href="" class="btn btn-link float-left">Cancel</a>
+        <button type="button" class="btn btn-link float-left" id="cancelButton"  data-toggle="modal" data-target="#cancelModal">Cancel</button>
         <button type="button" class="btn btn-link float-right" id="helpButton"  data-toggle="modal" data-target="#helpModal">Help</button>
       </footer>
 
