@@ -47,7 +47,10 @@ strong, .badge, .form label {
 .btn-primary:focus,
 .btn-secondary:hover,
 .btn-secondary:not(:disabled):not(.disabled):active,
-.btn-secondary:focus {
+.btn-secondary:focus,
+.modal .close:hover,
+.modal .close:not(:disabled):not(.disabled):active,
+.modal .close:focus {
   text-decoration: underline;
   box-shadow: 0 0 0 0.2rem #99B7D3;
   background: #004A8F;
@@ -241,6 +244,34 @@ strong, .badge, .form label {
 }
 .modal.fade.right.show .modal-dialog {
   right: 0;
+}
+
+.modal .close {
+  background: #004A8F;
+  color:#fff;
+  opacity: 1;
+  border-radius:50px;
+  width: 35px;
+  height: 35px;
+  font-size: 0;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.modal .close span {
+  font-size:30px;
+  line-height: 35px;
+  font-weight: 400;
+  font-family: 'NBSLight', Arial, "Helvetica Neue", Helvetica, sans-serif;
+  text-shadow: none;
+}
+.modal .close:not(:disabled):not(.disabled):hover,
+.modal .close:not(:disabled):not(.disabled):active,
+.modal .close:not(:disabled):not(.disabled):focus {
+  text-decoration: none;
+  opacity: 1;
+  color: #fff;
 }
 
 .auth-promo {
