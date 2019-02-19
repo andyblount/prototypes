@@ -48,14 +48,52 @@
             </div>
           </div>
           <ul class="list-unstyled">
-            <li><a href="#" class="btn btn-link underline">I haven't received a code</a></li>
+            <li><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#smsHelpModal">I haven't received a code</button></li>
           </ul>
+        </section>
 
+        <section class="sms-help-popup">
+          <div class="modal fade" tabindex="-1" role="dialog" id="smsHelpModal" data-backdrop="false">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">I haven't received a code</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>It can take a little while for the code to arrive. Please check you have signal and your phone number is correct. If you've been waiting for more than 1 minute we can resend it.</p>
+                  <button type="button" class="btn btn-primary d-block" data-dismiss="modal">Send code again</button>
+                  <button type="button" class="btn btn-secondary d-block" data-dismiss="modal">Wait a bit longer</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="help-popup">
+          <div class="modal fade" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Help</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>If you're stuck, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
+                  <button type="button" class="btn btn-primary d-block" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
     </div>
     <footer class="footer clearfix">
       <a href="" class="btn btn-link float-left">Cancel</a>
-      <a href="" class="btn btn-link float-right">Help</a>
+      <button type="button" class="btn btn-link float-right" id="helpButton"  data-toggle="modal" data-target="#helpModal">Help</button>
     </footer>
 
     </div>

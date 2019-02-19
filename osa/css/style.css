@@ -19,7 +19,7 @@ h1,h2,h3,h4,h5,h6 {
   color: #222;
 }
 
-p,li,label {
+p,li,label,.badge {
   font-family: 'NBSLight', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -37,12 +37,13 @@ a {
   line-height: 24px;
 }
 
-strong {
+strong, .badge, .form label {
   font-family: 'NBSBold', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 700;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-secondary {
   font-family: 'NBSBold', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -53,6 +54,20 @@ strong {
   background: #004A8F;
   color:#fff;
   border-width:0;
+  margin-bottom: 0.5rem;
+}
+.btn-secondary {
+  background: none;
+  border-width:2px;
+  border-color: #004A8F;
+  padding: 5px 22px;
+  color: #004A8F;
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  background-color: #fff;
+  border-color: #222;
+  color: #222;
 }
 .btn-link {
   font-family: 'NBSLight', Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -63,14 +78,29 @@ strong {
   line-height: 24px;
   padding:0;
 }
-.btn-primary .fa-chevron-right, .btn-link .fa-chevron-right {
+.btn-primary.d-block,
+.btn-secondary.d-block {
+  width: 100%;
+}
+.btn-primary .fa-chevron-right,
+.btn-secondary .fa-chevron-right,
+.btn-link .fa-chevron-right {
   margin-left: 6px;
   margin-right: -6px;
 }
-.btn-primary .fa-chevron-left, .btn-link .fa-chevron-left {
+.btn-primary .fa-chevron-left,
+.btn-secondary .fa-chevron-left,
+.btn-link .fa-chevron-left {
   margin-left: 0;
   margin-right: 6px;
 }
+
+.badge-secondary {
+  background:#e5f1f9;
+  padding:0px 3px;
+  border-radius: 0;
+}
+
 
 .list-unstyled li {
   margin-bottom: 9px;
@@ -84,7 +114,7 @@ strong {
   background: #e5f1f9;
   border-width:0;
   border-radius:0;
-  padding:12px;
+  padding:4px 12px 12px;
 }
 .alert-info p {
   margin-bottom: 0;
@@ -95,7 +125,6 @@ strong {
 
 .form label {
   margin-bottom: 0;
-  font-weight: 700;
 }
 .form input {
   border-radius:0;
@@ -128,8 +157,8 @@ strong {
 
 
 .header {
-
 }
+
 .header .verifiedbyvisa {
   margin-top: 10px;
 }
@@ -171,9 +200,7 @@ strong {
   border-radius: 0;
   border-width: 0;
 }
-.modal-content .btn-primary.d-block {
-  width: 100%;
-}
+
 .modal.fade .modal-dialog {
   bottom: -400px;
   opacity: 1;
@@ -184,4 +211,11 @@ strong {
 }
 .modal.fade.show .modal-dialog {
   bottom: 0;
+}
+
+.rca-instructions {
+}
+.rca-instructions li {
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
