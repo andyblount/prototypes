@@ -208,9 +208,11 @@ strong, .badge, .form label {
 .modal-header {
   padding-bottom: 0;
   border-bottom: 0;
+  display: block;
 }
 .modal-title {
   line-height: 27px;
+  padding-right: 35px;
 }
 .modal-body {
   padding-top: 0.5rem;
@@ -256,8 +258,11 @@ strong, .badge, .form label {
   font-size: 0;
   text-align: center;
   padding: 0;
-  margin: -5px -5px 0 0;
-  position: relative;
+  margin: 0;
+  position: absolute;
+  top:10px;
+  right:10px;
+  z-index: 1090;
 }
 .modal .close span {
   font-size:30px;
