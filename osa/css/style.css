@@ -288,6 +288,10 @@ strong, .badge, .form label {
   color: #fff;
 }
 
+.modal-body > ul {
+  margin-top: 10px;
+}
+
 .auth-promo {
   padding-left: 20px;
 }
