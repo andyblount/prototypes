@@ -288,7 +288,8 @@ strong, .badge, .form label {
   color: #fff;
 }
 
-.modal-body > ul {
+.modal-body > ul,
+.modal-body > div {
   margin-top: 10px;
 }
 
