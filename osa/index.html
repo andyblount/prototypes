@@ -115,7 +115,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p>To let us know your UK mobile number:</p>
+                    <p>Tell us your mobile number so we can send you a code to check it's really you.</p>
 
                     <div class="alert alert-primary">
                       <ul class="auth-promo mb-0">
@@ -147,8 +147,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    <p>To let us know your email address:</p>
-
+                    <p>Tell us your email address so we can send you a code to check it's really you.</p>
                     <div class="alert alert-primary">
                       <ul class="auth-promo mb-0">
                         <li>Log into the Nationwide Internet Bank and update your email address</li>
@@ -221,7 +220,21 @@
     <!-- Grid row -->
   </div>
 
-
+  <script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCKFtKNb4FU33CAJpjLb7X8jHYTp6WUwFs",
+      authDomain: "osa1-bef6c.firebaseapp.com",
+      databaseURL: "https://osa1-bef6c.firebaseio.com",
+      projectId: "osa1-bef6c",
+      storageBucket: "osa1-bef6c.appspot.com",
+      messagingSenderId: "691075868813"
+    };
+    firebase.initializeApp(config);
+    // Get a reference to the database service
+    var database = firebase.database();
+  </script>
   <!-- JQuery -->
   <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
   <!-- Bootstrap tooltips -->
@@ -250,7 +263,13 @@
   </script>
 
   <script>
+    var authMethodsId = 'dBiC7hqZGrBNXbEN2LUG';
+    var smsId = '6i7fLK12WIKAApAIFArs';
 
+    var sms = firebase.database().ref('authMethods/' + authMethodsId + '/sms/' + smsId);
+    sms.on('value', function(snapshot) {
+      console.log(snapshot.val());
+    });
   </script>
 </body>
 </html>
