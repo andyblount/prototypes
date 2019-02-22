@@ -26,11 +26,20 @@
     <div class="row">
       <!-- Grid column -->
       <div id="osa-iframe">
+        <div class="loading-modal d-block">
+          <br/><br/><br/>
+          <div class="text-center">
+            <i class="fa fa-spinner fa-spin fa-3x"></i>
+          </div>
+          <br/><h1 class="text-center">Authenticating your payment...</h1>
+        </div>
+
         <div class="page-wrap">
           <header class="header clearfix">
             <img src="img/nationwide.png" class="nationwide-logo float-left" width="85" height="50" alt="Nationwide" />
             <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
           </header>
+
           <section class="section">
 
             <h1>We need to check it's really you</h1>
@@ -282,6 +291,7 @@
       method.get().then(function(doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
+            $('.loading-modal').removeClass('d-block').addClass('d-none');
             var data = doc.data();
             ((data.enabled) ? $(routeSelector).removeClass('d-none') : $(routeSelector).addClass('d-none'));
 
@@ -292,16 +302,19 @@
 
             // bind button events
             $(buttonSelector).on('click', function(){
-              method.update({
-                enabled: ((data.enabled) ? false : true)
-              });
-              // change button to reflect change
-              ((!data.enabled) ? $(buttonSelector + ' .fa').removeClass('fa-times').addClass('fa-check') : $(buttonSelector + ' .fa').removeClass('fa-check').addClass('fa-times'));
-              // change route links to reflect change
-              ((!data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
+                method.update({
+                  enabled: ((data.enabled) ? false : true)
+                });
+                // change button to reflect change
+                ((!data.enabled) ? $(buttonSelector + ' .fa').removeClass('fa-times').addClass('fa-check') : $(buttonSelector + ' .fa').removeClass('fa-check').addClass('fa-times'));
+                // change route links to reflect change
+                ((!data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
             });
 
-        } else { console.log("No such document!"); }
+        } else {
+          console.log("No such document!");
+          $('.loading-modal').removeClass('d-block').addClass('d-none');
+        }
       }).catch(function(error) { console.log("Error getting document:", error); });
     };
 

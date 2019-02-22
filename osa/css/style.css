@@ -8,6 +8,7 @@ body {
   border:1px solid #ccc;
   margin: 50px;
   overflow-x: auto;
+  position: relative;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -244,7 +245,9 @@ strong, .badge, .form label {
 .modal.fade.up.show .modal-dialog {
   bottom: 0;
 }
-
+.modal.fade.right.show {
+  padding-right: 0 !important;
+}
 .modal.fade.right .modal-dialog {
   right: -400px;
   opacity: 1;
@@ -304,4 +307,14 @@ strong, .badge, .form label {
   margin-right: 7px;
   margin-top: -10px;
   margin-bottom: 5px;
+}
+.loading-modal {
+  width:318px;
+  height: 398px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fff;
+  text-align: center;
+  z-index: 1100;
 }
