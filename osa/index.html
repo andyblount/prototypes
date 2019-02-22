@@ -67,9 +67,10 @@
                   </div>
                   <div class="modal-body">
                     <ul class="list-unstyled">
-                      <li><button type="button" class="btn btn-secondary d-block" data-toggle="modal" data-target="#authAppModal">Get the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
-                      <li><button type="button" class="btn btn-secondary d-block" data-toggle="modal" data-target="#authSmsModal">Tell us your mobile number<i class="fa fa-chevron-right"></i></button></li>
-                      <li><button type="button" class="btn btn-secondary d-block" data-toggle="modal" data-target="#authEmailModal">Tell us your email address<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-secondary d-block" id="getApp" data-toggle="modal" data-target="#authAppModal">Get the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-secondary d-block" id="getSms" data-toggle="modal" data-target="#authSmsModal">Tell us your mobile number<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-secondary d-block" id="getEmail" data-toggle="modal" data-target="#authEmailModal">Tell us your email address<i class="fa fa-chevron-right"></i></button></li>
+                      <!--<li><button type="button" class="btn btn-secondary d-block" id="getRca" data-toggle="modal" data-target="#authRcaModal">Get a card reader<i class="fa fa-chevron-right"></i></button></li>-->
                     </ul>
                     <ul class="list-unstyled">
                       <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
@@ -289,7 +290,7 @@
     var rca = db.collection("authMethods").doc("rca");
     var errors = db.collection("authMethods").doc("errors");
 
-    var toggleAuthMethod = function(method, buttonSelector, routeSelector){
+    var toggleAuthMethod = function(method, buttonSelector, routeSelector, promoSelector){
       method.get().then(function(doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
@@ -299,6 +300,8 @@
             $(buttonSelector).html(((data.enabled) ? '<i class="fa fa-check"></i> ' + data.name : '<i class="fa fa-times"></i> ' + data.name));
             // show and hide relevant routes based on db
             ((data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
+            // show and hide relevant routes based on db
+            ((!data.enabled) ? $(promoSelector).removeClass('d-none').addClass('d-block') : $(promoSelector).addClass('d-none').removeClass('d-block'));
             // change hyperlinks for errors
             if (data.type == "error" && data.enabled) {
               $('#useApp').attr('href', 'useapperror.html');
@@ -315,6 +318,8 @@
                 ((!data.enabled) ? $(buttonSelector + ' .fa').removeClass('fa-times').addClass('fa-check') : $(buttonSelector + ' .fa').removeClass('fa-check').addClass('fa-times'));
                 // enable/disable route links to reflect change
                 ((!data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
+                // enable/disable promo links to reflect change
+                ((data.enabled) ? $(promoSelector).removeClass('d-none').addClass('d-block') : $(promoSelector).addClass('d-none').removeClass('d-block'));
                 // change hyperlinks for errors
                 if (data.type == "error" && !data.enabled) {
                   $('#useApp').attr('href', 'useapperror.html');
@@ -344,10 +349,10 @@
       });
     };
 
-    toggleAuthMethod(sms, '#smsToggle', '#useSms');
-    toggleAuthMethod(email, '#emailToggle', '#useEmail');
-    toggleAuthMethod(app, '#appToggle', '#useApp');
-    toggleAuthMethod(rca, '#rcaToggle', '#useRca');
+    toggleAuthMethod(sms, '#smsToggle', '#useSms', '#getSms');
+    toggleAuthMethod(email, '#emailToggle', '#useEmail', '#getEmail');
+    toggleAuthMethod(app, '#appToggle', '#useApp', '#getApp');
+    toggleAuthMethod(rca, '#rcaToggle', '#useRca', '#getRca');
     toggleAuthMethod(errors, '#errorsToggle');
 
   });
