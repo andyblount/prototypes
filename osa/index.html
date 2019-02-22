@@ -83,14 +83,14 @@
                     </button>
                   </div>
                   <div class="modal-body">
+                    <p>You don't have to be shopping on your mobile device to use it as a way to verify yourself.</p>
                     <div class="container">
                       <div class="row alert alert-primary pl-1 pr-1">
                         <div class="col-2 pl-0 pr-1">
                           <img src="img/nwappicon.png" alt=""/>
                         </div>
                         <div class="col-10 pl-1 pr-0">
-                          <p>Download the Nationwide Banking app on your mobile device to use it as a way of verifying yourself.</p>
-                          <p class="mb-0">Search for the <strong>Nationwide Banking app</strong> in your mobile device's app store.</p>
+                          <p class="mb-0">Download the Nationwide Banking app on your mobile device to confirm it's really you by using your fingerprint or passnumber.</p>
                         </div>
                       </div>
                     </div>
@@ -220,6 +220,8 @@
     <!-- Grid row -->
   </div>
 
+  <div class="controls" id="admin"></div>
+
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
   <script>
@@ -261,19 +263,40 @@
   </script>
 
   <script>
-    //var sms = db.ref('authMethods/' + authMethodsId + '/sms/' + smsId);
+
+  $(document).ready(function() {
+    var admin = false;
+    if(admin) {
+      $('#admin').append('<button type="button" id="smsToggle">Loading</button>')
+                 .append('<button type="button" id="emailToggle">Loading</button>');
+
+      $('#smsToggle').on('change', function(){
+
+      });
+    };
 
     var sms = db.collection("authMethods").doc("sms");
-    sms.get().then(function(doc) {
-      if (doc.exists) {
-          console.log("Document data:", doc.data());
-      } else {
-          console.log("No such document!");
-      }
-    }).catch(function(error) {
-      console.log("Error getting document:", error);
-    });
+    var email = db.collection("authMethods").doc("email");
 
+    var toggleAuthMethod = function(method, selector){
+      method.get().then(function(doc) {
+        if (doc.exists) {
+            console.log("Document data:", doc.data());
+            var data = doc.data();
+            $(selector).html(((data.enabled) ? 'Disable' : 'Enable') + ' ' + data.name);
+            $(selector).on('click', function(){
+              method.update({
+                enabled: ((data.enabled) ? false : true)
+              });
+            });
+        } else { console.log("No such document!"); }
+      }).catch(function(error) { console.log("Error getting document:", error); });
+    };
+
+    toggleAuthMethod(sms, '#smsToggle');
+    toggleAuthMethod(email, '#emailToggle');
+
+  });
 
   </script>
 </body>
