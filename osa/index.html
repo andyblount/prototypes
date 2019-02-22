@@ -85,7 +85,7 @@
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title">In future, verify yourself using the app</h5>
+                    <h5 class="modal-title">In future, verify yourself using our app</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -273,55 +273,82 @@
   <script>
 
   $(document).ready(function() {
-    var admin = false;
+    var admin = true;
     if(admin) {
       $('#admin')
       .append('<button type="button" class="btn btn-secondary" id="appToggle">Loading</button><br/>')
       .append('<button type="button" class="btn btn-secondary" id="smsToggle">Loading</button><br/>')
       .append('<button type="button" class="btn btn-secondary" id="rcaToggle">Loading</button><br/>')
-      .append('<button type="button" class="btn btn-secondary" id="emailToggle">Loading</button><br/>');
+      .append('<button type="button" class="btn btn-secondary" id="emailToggle">Loading</button><br/>')
+      .append('<button type="button" class="btn btn-secondary" id="errorsToggle">Loading</button><br/>');
     };
 
     var sms = db.collection("authMethods").doc("sms");
     var email = db.collection("authMethods").doc("email");
     var app = db.collection("authMethods").doc("app");
     var rca = db.collection("authMethods").doc("rca");
+    var errors = db.collection("authMethods").doc("errors");
 
     var toggleAuthMethod = function(method, buttonSelector, routeSelector){
       method.get().then(function(doc) {
         if (doc.exists) {
             console.log("Document data:", doc.data());
-            $('.loading-modal').removeClass('d-block').addClass('d-none');
             var data = doc.data();
-            ((data.enabled) ? $(routeSelector).removeClass('d-none') : $(routeSelector).addClass('d-none'));
 
             // set up admin buttons
             $(buttonSelector).html(((data.enabled) ? '<i class="fa fa-check"></i> ' + data.name : '<i class="fa fa-times"></i> ' + data.name));
-            // show and hide relevant routes based on db values
+            // show and hide relevant routes based on db
             ((data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
+            // change hyperlinks for errors
+            if (data.type == "error" && data.enabled) {
+              $('#useApp').attr('href', 'useapperror.html');
+              $('#useSms').attr('href', 'usesmserror.html');
+              $('#useRca').attr('href', 'usercaerror.html');
+              $('#useEmail').attr('href', 'useemailerror.html');
+            }
 
             // bind button events
             $(buttonSelector).on('click', function(){
-                method.update({
-                  enabled: ((data.enabled) ? false : true)
-                });
+                // update db
+                method.update({ enabled: ((data.enabled) ? false : true) });
                 // change button to reflect change
                 ((!data.enabled) ? $(buttonSelector + ' .fa').removeClass('fa-times').addClass('fa-check') : $(buttonSelector + ' .fa').removeClass('fa-check').addClass('fa-times'));
-                // change route links to reflect change
+                // enable/disable route links to reflect change
                 ((!data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
+                // change hyperlinks for errors
+                if (data.type == "error" && !data.enabled) {
+                  $('#useApp').attr('href', 'useapperror.html');
+                  $('#useSms').attr('href', 'usesmserror.html');
+                  $('#useRca').attr('href', 'usercaerror.html');
+                  $('#useEmail').attr('href', 'useemailerror.html');
+                }
+                else if (data.type == "error" && data.enabled) {
+                  $('#useApp').attr('href', 'useapp.html');
+                  $('#useSms').attr('href', 'usesms.html');
+                  $('#useRca').attr('href', 'userca.html');
+                  $('#useEmail').attr('href', 'useemail.html');
+                }
             });
+
+            // hide loading spinner
+            $('.loading-modal').removeClass('d-block').addClass('d-none');
 
         } else {
           console.log("No such document!");
           $('.loading-modal').removeClass('d-block').addClass('d-none');
         }
-      }).catch(function(error) { console.log("Error getting document:", error); });
+      }).catch(function(error) {
+        console.log("Error getting document:", error);
+        $('.loading-modal').removeClass('d-block').addClass('d-none');
+
+      });
     };
 
     toggleAuthMethod(sms, '#smsToggle', '#useSms');
     toggleAuthMethod(email, '#emailToggle', '#useEmail');
     toggleAuthMethod(app, '#appToggle', '#useApp');
     toggleAuthMethod(rca, '#rcaToggle', '#useRca');
+    toggleAuthMethod(errors, '#errorsToggle');
 
   });
 
