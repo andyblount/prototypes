@@ -45,7 +45,7 @@
             <h1>We need to check it's really you</h1>
             <p>Choose how you'd like us to verify you:</p>
             <ul class="list-unstyled">
-              <li><a href="useapp.html" class="btn btn-primary d-block" id="useApp">Use the Nationwide app<i class="fa fa-chevron-right"></i></a></li>
+              <li><a href="useapp.html" class="btn btn-primary d-block" id="useApp">Use the Nationwide {{ message }}<i class="fa fa-chevron-right"></i></a></li>
               <li><a href="usesms.html" class="btn btn-primary d-block" id="useSms">Get a code by text<i class="fa fa-chevron-right"></i></a></li>
               <li><a href="userca.html" class="btn btn-secondary d-block" id="useRca">Use a card reader<i class="fa fa-chevron-right"></i></a></li>
               <li><a href="useemail.html" class="btn btn-secondary d-block" id=useEmail>Get a code by email<i class="fa fa-chevron-right"></i></a></li>
@@ -67,9 +67,9 @@
                   </div>
                   <div class="modal-body">
                     <ul class="list-unstyled">
-                      <li><button type="button" class="btn btn-secondary d-block" id="getApp" data-toggle="modal" data-target="#authAppModal">Get the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
-                      <li><button type="button" class="btn btn-secondary d-block" id="getSms" data-toggle="modal" data-target="#authSmsModal">Tell us your mobile number<i class="fa fa-chevron-right"></i></button></li>
-                      <li><button type="button" class="btn btn-secondary d-block" id="getEmail" data-toggle="modal" data-target="#authEmailModal">Tell us your email address<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-primary d-block" id="getApp" data-toggle="modal" data-target="#authAppModal">Get the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-primary d-block" id="getSms" data-toggle="modal" data-target="#authSmsModal">Tell us your mobile number<i class="fa fa-chevron-right"></i></button></li>
+                      <li><button type="button" class="btn btn-primary d-block" id="getEmail" data-toggle="modal" data-target="#authEmailModal">Tell us your email address<i class="fa fa-chevron-right"></i></button></li>
                       <!--<li><button type="button" class="btn btn-secondary d-block" id="getRca" data-toggle="modal" data-target="#authRcaModal">Get a card reader<i class="fa fa-chevron-right"></i></button></li>-->
                     </ul>
                     <ul class="list-unstyled">
@@ -229,7 +229,13 @@
     <!-- Grid row -->
   </div>
 
-  <div class="controls" id="admin"></div>
+  <div class="controls" v-cloak v-bind:class="{ 'd-none': !visible }" v-if="visible" id="admin">
+    <button type="button" class="btn btn-secondary" id="appToggle">Loading</button><br/>
+    <button type="button" class="btn btn-secondary" id="smsToggle">Loading</button><br/>
+    <button type="button" class="btn btn-secondary" id="rcaToggle">Loading</button><br/>
+    <button type="button" class="btn btn-secondary" id="emailToggle">Loading</button><br/>
+    <button type="button" class="btn btn-secondary" id="errorsToggle">Loading</button><br/>
+  </div>
 
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
@@ -276,15 +282,19 @@
   <script>
 
   $(document).ready(function() {
-    var admin = true;
-    if(admin) {
-      $('#admin')
-      .append('<button type="button" class="btn btn-secondary" id="appToggle">Loading</button><br/>')
-      .append('<button type="button" class="btn btn-secondary" id="smsToggle">Loading</button><br/>')
-      .append('<button type="button" class="btn btn-secondary" id="rcaToggle">Loading</button><br/>')
-      .append('<button type="button" class="btn btn-secondary" id="emailToggle">Loading</button><br/>')
-      .append('<button type="button" class="btn btn-secondary" id="errorsToggle">Loading</button><br/>');
-    };
+    var admin = new Vue({
+      el: '#admin',
+      data: {
+        visible: true
+      }
+    });
+
+    var app = new Vue({
+      el: '#useApp',
+      data: {
+        message: 'app'
+      }
+    });
 
     var sms = db.collection("authMethods").doc("sms");
     var email = db.collection("authMethods").doc("email");
@@ -297,6 +307,8 @@
         if (doc.exists) {
             console.log("Document data:", doc.data());
             var data = doc.data();
+
+
 
             // set up admin buttons
             $(buttonSelector).html(((data.enabled) ? '<i class="fa fa-check"></i> ' + data.name : '<i class="fa fa-times"></i> ' + data.name));
