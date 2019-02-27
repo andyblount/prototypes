@@ -72,7 +72,7 @@ strong, .badge, .form label {
 }
 .btn-secondary {
   font-family: 'NBSLight', Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 400;
+  font-weight: 700;
   background: none;
   border-width:2px;
   border-color: #004A8F;
@@ -145,6 +145,7 @@ strong, .badge, .form label {
   background: #fff;
   border:none;
   padding: 12px;
+  border-radius: 0;
 }
 .btn.underline {
   text-decoration:underline;
