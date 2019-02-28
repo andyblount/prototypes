@@ -57,7 +57,8 @@ strong, .badge, .form label {
   background: #004A8F;
 }
 .btn-primary,
-.btn-secondary {
+.btn-secondary,
+.auth-methods > li:first-child a {
   font-family: 'NBSBold', Arial, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -69,6 +70,11 @@ strong, .badge, .form label {
   color:#fff;
   border-width:0;
   margin-bottom: 0.7rem;
+}
+.auth-methods > li:first-child a:hover,
+.auth-methods > li:first-child a:focus {
+  color: #fff;
+  text-decoration: underline;
 }
 .btn-secondary {
   font-family: 'NBSLight', Arial, "Helvetica Neue", Helvetica, sans-serif;

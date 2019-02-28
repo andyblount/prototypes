@@ -21,220 +21,198 @@
 
 <body>
 
-  <div class="container">
-    <!-- Grid row -->
-    <div class="row">
-      <!-- Grid column -->
-      <div id="osa-iframe">
-        <div class="loading-modal d-block">
-          <br/><br/><br/>
-          <div class="text-center">
-            <i class="fa fa-spinner fa-spin fa-3x"></i>
-          </div>
-          <br/><h1 class="text-center">Authenticating your payment...</h1>
-        </div>
+  <div id="osa-page">
+    <div class="container">
+      <!-- Grid row -->
+      <div class="row">
+        <!-- Grid column -->
+        <div id="osa-iframe">
+          <!--<div class="loading-modal d-block">
+            <br/><br/><br/>
+            <div class="text-center">
+              <i class="fa fa-spinner fa-spin fa-3x"></i>
+            </div>
+            <br/><h1 class="text-center">Authenticating your payment...</h1>
+          </div>-->
 
-        <div class="page-wrap">
-          <header class="header clearfix">
-            <img src="img/nationwide.png" class="nationwide-logo float-left" width="85" height="50" alt="Nationwide" />
-            <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
-          </header>
+          <div class="page-wrap">
+            <header class="header clearfix">
+              <img src="img/nationwide.png" class="nationwide-logo float-left" width="85" height="50" alt="Nationwide" />
+              <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
+            </header>
 
-          <section class="section">
+            <section class="section">
 
-            <h1>We need to check it's really you</h1>
-            <p>Choose how you'd like us to verify you:</p>
-            <ul class="list-unstyled">
-              <li><a href="useapp.html" class="btn btn-primary d-block" id="useApp">Use the Nationwide {{ message }}<i class="fa fa-chevron-right"></i></a></li>
-              <li><a href="usesms.html" class="btn btn-primary d-block" id="useSms">Get a code by text<i class="fa fa-chevron-right"></i></a></li>
-              <li><a href="userca.html" class="btn btn-secondary d-block" id="useRca">Use a card reader<i class="fa fa-chevron-right"></i></a></li>
-              <li><a href="useemail.html" class="btn btn-secondary d-block" id=useEmail>Get a code by email<i class="fa fa-chevron-right"></i></a></li>
-            </ul>
-            <ul class="list-unstyled">
-              <li><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authHelpModal">Get more ways to verify yourself in future</button></li>
-            </ul>
-          </section>
+              <h1>We need to check it's really you</h1>
+              <p>Choose how you'd like us to verify you:</p>
+              <ul class="auth-methods list-unstyled">
+                <li v-if="auths.app.enabled">
+                  <a href="useapp.html" class="btn" v-cloak v-bind:class="methodClasses('app')" v-bind:href="methodUrl('app')">Use the Nationwide app<i class="fa fa-chevron-right"></i></a>
+                </li>
+                <li v-if="auths.sms.enabled">
+                  <a href="usesms.html" class="btn" v-cloak v-bind:class="methodClasses('sms')" v-bind:href="methodUrl('sms')">Get a code by text<i class="fa fa-chevron-right"></i></a>
+                </li>
+                <li v-if="auths.rca.enabled">
+                  <a href="userca.html" class="btn" v-cloak v-bind:class="methodClasses('rca')" v-bind:href="methodUrl('rca')">Use a card reader<i class="fa fa-chevron-right"></i></a>
+                </li>
+                <li v-if="auths.email.enabled">
+                  <a href="useemail.html" class="btn" v-cloak v-bind:class="methodClasses('email')" v-bind:href="methodUrl('email')">Get a code by email<i class="fa fa-chevron-right"></i></a>
+                </li>
+              </ul>
+              <ul class="list-unstyled" v-if="showPromo()">
+                <li><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authHelpModal">Get more ways to verify yourself in future</button></li>
+              </ul>
+            </section>
 
-          <section class="auth-help-popup">
-            <div class="modal fade right" tabindex="-1" role="dialog" id="authHelpModal" data-backdrop="false">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Get more ways to verify yourself in future</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <ul class="list-unstyled">
-                      <li><button type="button" class="btn btn-primary d-block" id="getApp" data-toggle="modal" data-target="#authAppModal">Get the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
-                      <li><button type="button" class="btn btn-primary d-block" id="getSms" data-toggle="modal" data-target="#authSmsModal">Tell us your mobile number<i class="fa fa-chevron-right"></i></button></li>
-                      <li><button type="button" class="btn btn-primary d-block" id="getEmail" data-toggle="modal" data-target="#authEmailModal">Tell us your email address<i class="fa fa-chevron-right"></i></button></li>
-                      <!--<li><button type="button" class="btn btn-secondary d-block" id="getRca" data-toggle="modal" data-target="#authRcaModal">Get a card reader<i class="fa fa-chevron-right"></i></button></li>-->
-                    </ul>
-                    <ul class="list-unstyled">
-                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                    </ul>
+            <section class="auth-help-popup">
+              <div class="modal fade right" tabindex="-1" role="dialog" id="authHelpModal" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Get more ways to verify yourself in future</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <ul class="list-unstyled">
+                        <li v-if="showPromoMethod('app')"><button type="button" class="btn btn-primary d-block" data-toggle="modal" data-target="#authAppModal">Get the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
+                        <li v-if="showPromoMethod('sms')"><button type="button" class="btn btn-primary d-block" data-toggle="modal" data-target="#authSmsModal">Tell us your mobile number<i class="fa fa-chevron-right"></i></button></li>
+                      </ul>
+                      <ul class="list-unstyled">
+                        <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="auth-app-popup">
-            <div class="modal fade right" tabindex="-1" role="dialog" id="authAppModal" data-backdrop="false">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">In future, verify yourself using our app</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <!--<p>You don't have to be shopping on your mobile device to use it as a way to verify yourself.</p>-->
-                    <div class="container">
-                      <div class="row alert alert-primary pl-1 pr-1">
-                        <div class="col-2 pl-0 pr-1">
-                          <img src="img/nwappicon.png" alt=""/>
-                        </div>
-                        <div class="col-10 pl-1 pr-0">
-                          <p class="mb-0">Download the <strong>Nationwide Banking app</strong> on your mobile device to confirm it's really you by using your fingerprint or passnumber. You don’t need a mobile signal to verify yourself this way.</p>
+            <section class="auth-app-popup">
+              <div class="modal fade right" tabindex="-1" role="dialog" id="authAppModal" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">In future, verify yourself using our app</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <!--<p>You don't have to be shopping on your mobile device to use it as a way to verify yourself.</p>-->
+                      <div class="container">
+                        <div class="row alert alert-primary pl-1 pr-1">
+                          <div class="col-2 pl-0 pr-1">
+                            <img src="img/nwappicon.png" alt=""/>
+                          </div>
+                          <div class="col-10 pl-1 pr-0">
+                            <p class="mb-0">Download the <strong>Nationwide Banking app</strong> on your mobile device to confirm it's really you by using your fingerprint or passnumber. You don’t need a mobile signal to verify yourself this way.</p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <p>For security, you won't be able to verify yourself this way for up to 10 days.</p>
-                    <ul class="list-unstyled">
-                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="auth-sms-popup">
-            <div class="modal fade right" tabindex="-1" role="dialog" id="authSmsModal" data-backdrop="false">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">In future, verify yourself with a code sent by text</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Tell us your mobile number so we can send you a code to check it's really you.</p>
-
-                    <div class="alert alert-primary">
-                      <ul class="auth-promo mb-0">
-                        <li>Log into the Nationwide Internet Bank and update your mobile number</li>
-                        <li>Or phone us on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad)</li>
-                        <li>Or visit a Nationwide branch</li>
+                      <p>For security, you may not be able to verify yourself this way for up to 10 days.</p>
+                      <ul class="list-unstyled">
+                        <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
                       </ul>
                     </div>
-
-
-                    <p>For security, you won't be able to verify yourself this way for up to 10 days.</p>
-                    <ul class="list-unstyled">
-                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="auth-email-popup">
-            <div class="modal fade right" tabindex="-1" role="dialog" id="authEmailModal" data-backdrop="false">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">In future, verify yourself with a code sent by email</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Tell us your email address so we can send you a code to check it's really you.</p>
-                    <div class="alert alert-primary">
-                      <ul class="auth-promo mb-0">
-                        <li>Log into the Nationwide Internet Bank and update your email address</li>
-                        <li>Or phone us on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad)</li>
-                        <li>Or visit a Nationwide branch</li>
+            <section class="auth-sms-popup">
+              <div class="modal fade right" tabindex="-1" role="dialog" id="authSmsModal" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">In future, verify yourself with a code sent by text</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Tell us your mobile number so we can send you a code to check it's really you.</p>
+
+                      <div class="alert alert-primary">
+                        <ul class="auth-promo mb-0">
+                          <li>Log into the Nationwide Internet Bank and update your mobile number</li>
+                          <li>Or phone us on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad)</li>
+                          <li>Or visit a Nationwide branch</li>
+                        </ul>
+                      </div>
+
+                      <p>For security, you may not be able to verify yourself this way for up to 10 days.</p>
+                      <ul class="list-unstyled">
+                        <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
                       </ul>
                     </div>
-
-                    <p>For security, you won't be able to verify yourself this way for up to 10 days.</p>
-                    <ul class="list-unstyled">
-                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                    </ul>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="help-popup">
-            <div class="modal fade right" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Help</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>If you're stuck, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
-                    <ul class="list-unstyled">
-                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                    </ul>
+            <section class="help-popup">
+              <div class="modal fade right" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Help</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>If you're stuck, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
+                      <ul class="list-unstyled">
+                        <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
 
-          <section class="cancel-popup">
-            <div class="modal fade right" tabindex="-1" role="dialog" id="cancelModal" data-backdrop="false">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title">Are you sure?</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>If you cancel, you will be taken back to the checkout.</p>
-                    <button type="button" class="btn btn-primary d-block" data-dismiss="modal">Yes, cancel</button>
-                    <ul class="list-unstyled">
-                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                    </ul>
+            <section class="cancel-popup">
+              <div class="modal fade right" tabindex="-1" role="dialog" id="cancelModal" data-backdrop="false">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Are you sure?</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>If you cancel, you will be taken back to the checkout.</p>
+                      <button type="button" class="btn btn-primary d-block" data-dismiss="modal">Yes, cancel</button>
+                      <ul class="list-unstyled">
+                        <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+        </div>
+        <footer class="footer clearfix">
+          <button type="button" class="btn btn-link float-left" id="cancelButton"  data-toggle="modal" data-target="#cancelModal">Cancel</button>
+          <button type="button" class="btn btn-link float-right" id="helpButton"  data-toggle="modal" data-target="#helpModal">Help</button>
+        </footer>
+
+        </div>
+        <!-- Grid column -->
       </div>
-      <footer class="footer clearfix">
-        <button type="button" class="btn btn-link float-left" id="cancelButton"  data-toggle="modal" data-target="#cancelModal">Cancel</button>
-        <button type="button" class="btn btn-link float-right" id="helpButton"  data-toggle="modal" data-target="#helpModal">Help</button>
-      </footer>
-
-      </div>
-      <!-- Grid column -->
+      <!-- Grid row -->
     </div>
-    <!-- Grid row -->
-  </div>
 
-  <div class="controls" v-cloak v-bind:class="{ 'd-none': !visible }" v-if="visible" id="admin">
-    <button type="button" class="btn btn-secondary" id="appToggle">Loading</button><br/>
-    <button type="button" class="btn btn-secondary" id="smsToggle">Loading</button><br/>
-    <button type="button" class="btn btn-secondary" id="rcaToggle">Loading</button><br/>
-    <button type="button" class="btn btn-secondary" id="emailToggle">Loading</button><br/>
-    <button type="button" class="btn btn-secondary" id="errorsToggle">Loading</button><br/>
+    <div class="controls" v-cloak v-bind:class="{ 'd-none': !admin }" v-if="admin">
+      <button type="button" class="btn btn-secondary" v-on:click="toggleMethod('app')"><i class="fa" v-bind:class="adminIcon('app')"></i> {{auths.app.name}}</button><br/>
+      <button type="button" class="btn btn-secondary" v-on:click="toggleMethod('sms')"><i class="fa" v-bind:class="adminIcon('sms')"></i> {{auths.sms.name}}</button><br/>
+      <button type="button" class="btn btn-secondary" v-on:click="toggleMethod('rca')"><i class="fa" v-bind:class="adminIcon('rca')"></i> {{auths.rca.name}}</button><br/>
+      <button type="button" class="btn btn-secondary" v-on:click="toggleMethod('email')"><i class="fa" v-bind:class="adminIcon('email')"></i> {{auths.email.name}}</button><br/>
+      <button type="button" class="btn btn-secondary" v-on:click="toggleMethod('errors')"><i class="fa" v-bind:class="adminIcon('errors')"></i> {{auths.errors.name}}</button><br/>
+    </div>
+
   </div>
 
   <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
@@ -248,7 +226,7 @@
     };
     firebase.initializeApp(config);
     // Get a reference to the database service
-    var db = firebase.firestore();
+    const db = firebase.firestore().collection("authMethods");
   </script>
   <!-- Vue -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -279,98 +257,71 @@
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
   </script>
 
-  <script>
-
+<script>
   $(document).ready(function() {
-    var admin = new Vue({
-      el: '#admin',
-      data: {
-        visible: true
-      }
-    });
-
-    var app = new Vue({
-      el: '#useApp',
-      data: {
-        message: 'app'
-      }
-    });
-
-    var sms = db.collection("authMethods").doc("sms");
-    var email = db.collection("authMethods").doc("email");
-    var app = db.collection("authMethods").doc("app");
-    var rca = db.collection("authMethods").doc("rca");
-    var errors = db.collection("authMethods").doc("errors");
-
-    var toggleAuthMethod = function(method, buttonSelector, routeSelector, promoSelector){
-      method.get().then(function(doc) {
-        if (doc.exists) {
-            console.log("Document data:", doc.data());
-            var data = doc.data();
-
-
-
-            // set up admin buttons
-            $(buttonSelector).html(((data.enabled) ? '<i class="fa fa-check"></i> ' + data.name : '<i class="fa fa-times"></i> ' + data.name));
-            // show and hide relevant routes based on db
-            ((data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
-            // show and hide relevant routes based on db
-            ((!data.enabled) ? $(promoSelector).removeClass('d-none').addClass('d-block') : $(promoSelector).addClass('d-none').removeClass('d-block'));
-            // change hyperlinks for errors
-            if (data.type == "error" && data.enabled) {
-              $('#useApp').attr('href', 'useapperror.html');
-              $('#useSms').attr('href', 'usesmserror.html');
-              $('#useRca').attr('href', 'usercaerror.html');
-              $('#useEmail').attr('href', 'useemailerror.html');
-            }
-
-            // bind button events
-            $(buttonSelector).on('click', function(){
-                // update db
-                method.update({ enabled: ((data.enabled) ? false : true) });
-                // change button to reflect change
-                ((!data.enabled) ? $(buttonSelector + ' .fa').removeClass('fa-times').addClass('fa-check') : $(buttonSelector + ' .fa').removeClass('fa-check').addClass('fa-times'));
-                // enable/disable route links to reflect change
-                ((!data.enabled) ? $(routeSelector).removeClass('d-none').addClass('d-block') : $(routeSelector).addClass('d-none').removeClass('d-block'));
-                // enable/disable promo links to reflect change
-                ((data.enabled) ? $(promoSelector).removeClass('d-none').addClass('d-block') : $(promoSelector).addClass('d-none').removeClass('d-block'));
-                // change hyperlinks for errors
-                if (data.type == "error" && !data.enabled) {
-                  $('#useApp').attr('href', 'useapperror.html');
-                  $('#useSms').attr('href', 'usesmserror.html');
-                  $('#useRca').attr('href', 'usercaerror.html');
-                  $('#useEmail').attr('href', 'useemailerror.html');
-                }
-                else if (data.type == "error" && data.enabled) {
-                  $('#useApp').attr('href', 'useapp.html');
-                  $('#useSms').attr('href', 'usesms.html');
-                  $('#useRca').attr('href', 'userca.html');
-                  $('#useEmail').attr('href', 'useemail.html');
-                }
-            });
-
-            // hide loading spinner
-            $('.loading-modal').removeClass('d-block').addClass('d-none');
-
-        } else {
-          console.log("No such document!");
-          $('.loading-modal').removeClass('d-block').addClass('d-none');
-        }
-      }).catch(function(error) {
-        console.log("Error getting document:", error);
-        $('.loading-modal').removeClass('d-block').addClass('d-none');
-
-      });
+    const store = {
+      admin: true,
+      auths: {
+        app:{ enabled:false },
+        sms:{ enabled:false },
+        rca:{ enabled:false },
+        email:{ enabled:false },
+        errors:{ enabled:false }
+      },
+      write: (data) => db.update({
+          enabled: !data.enabled
+      })
     };
 
-    toggleAuthMethod(sms, '#smsToggle', '#useSms', '#getSms');
-    toggleAuthMethod(email, '#emailToggle', '#useEmail', '#getEmail');
-    toggleAuthMethod(app, '#appToggle', '#useApp', '#getApp');
-    toggleAuthMethod(rca, '#rcaToggle', '#useRca', '#getRca');
-    toggleAuthMethod(errors, '#errorsToggle');
+    var vm = new Vue({
+      el: '#osa-page',
+      data: store,
+      methods: {
+        adminIcon: function(methodId){
+          if(this.auths[methodId].enabled) return 'fa-check';
+          else return 'fa-times';
+        },
+        methodClasses: function(methodId){
+          var classes = ' btn-secondary';
+          if(this.auths[methodId].enabled) classes += ' d-block';
+          else classes += ' d-none';
+          return classes;
+        },
+        methodUrl: function(methodId){
+          if(this.auths.errors.enabled) return "use" + methodId + "error.html";
+          else return "use" + methodId + ".html";
+        },
+        toggleMethod: function(methodId){
+          db.doc(methodId).update({
+            enabled: !this.auths[methodId].enabled
+          });
+        },
+        showPromo: function(){
+          if(!this.auths.app.enabled || !this.auths.sms.enabled) return true;
+          else return false;
+        },
+        showPromoMethod: function(methodId){
+          if(!this.auths[methodId].enabled) return true
+          else return false;
+        }
+      }
+    });
+
+    // onSnapshot is executed every time the data in the underlying firestore collection changes
+    // It will get passed an array of references to the documents that match your query
+    db.onSnapshot((dataUpdate) => {
+      const methods = [];
+      dataUpdate.forEach((doc) => {
+        const method = doc.data();
+        method.id = doc.id;
+        methods[method.id] = method;
+      });
+      store.auths = methods;
+      console.log("updated db: ", methods);
+    });
 
   });
 
-  </script>
+</script>
 </body>
 </html>
