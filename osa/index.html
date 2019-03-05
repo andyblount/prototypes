@@ -78,8 +78,8 @@
                     </div>
                     <div class="modal-body">
                       <ul class="list-unstyled">
-                        <li v-if="showPromoMethod('app')"><button type="button" class="btn btn-primary d-block" data-toggle="modal" data-target="#authAppModal">Use the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
-                        <li v-if="showPromoMethod('sms')"><button type="button" class="btn btn-primary d-block" data-toggle="modal" data-target="#authSmsModal">Get a code by text<i class="fa fa-chevron-right"></i></button></li>
+                        <li v-if="showPromoMethod('app')"><button type="button" class="btn btn-primary d-block" data-toggle="modal" data-target="#authAppModal" v-on:click="timedDelayModalClose('#authHelpModal')">Use the Nationwide app<i class="fa fa-chevron-right"></i></button></li>
+                        <li v-if="showPromoMethod('sms')"><button type="button" class="btn btn-primary d-block" data-toggle="modal" data-target="#authSmsModal" v-on:click="timedDelayModalClose('#authHelpModal')">Get a code by text<i class="fa fa-chevron-right"></i></button></li>
                       </ul>
                       <ul class="list-unstyled">
                         <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
@@ -145,7 +145,8 @@
 
                       <p>For security, you may not be able to verify yourself this way for up to 10 days.</p>
                       <ul class="list-unstyled">
-                        <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                        <li v-if="calcPromoMethodsAvailable() == 'appandsms'"><a href="index.html" class="btn btn-link" v-on:click="timedDelayModalClose('#authSmsModal')" data-toggle="modal" data-target="#authHelpModal" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                        <li v-if="calcPromoMethodsAvailable() != 'appandsms'"><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
                       </ul>
                     </div>
                   </div>
@@ -310,6 +311,11 @@
           if(!this.auths.app.enabled && !this.auths.sms.enabled) return "appandsms";
           else if (!this.auths.app.enabled) return "apponly";
           else if (!this.auths.sms.enabled) return "smsonly";
+        },
+        timedDelayModalClose: function(modalId) {
+          setTimeout(function(){
+            $(modalId).modal('hide')
+          }, 1000);
         }
       }
     });
