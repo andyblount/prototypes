@@ -114,7 +114,8 @@
                       </div>
                       <p>For security, you may not be able to verify yourself this way for up to 10 days.</p>
                       <ul class="list-unstyled">
-                        <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                        <li v-if="calcPromoMethodsAvailable() == 'appandsms'"><a href="index.html" class="btn btn-link" v-on:click="timedDelayModalClose('#authAppModal')" data-toggle="modal" data-target="#authHelpModal" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                        <li v-if="calcPromoMethodsAvailable() != 'appandsms'"><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
                       </ul>
                     </div>
                   </div>
