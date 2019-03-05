@@ -61,8 +61,8 @@
               </ul>
               <ul class="list-unstyled" v-if="showPromo()">
                 <li v-if="calcPromoMethodsAvailable() == 'appandsms'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authHelpModal">Find out how to verify yourself using a text message or the Nationwide Banking app</button></li>
-                <li v-if="calcPromoMethodsAvailable() == 'apponly'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#appHelpModal">Find out how to verify yourself using the Nationwide Banking app</button></li>
-                <li v-if="calcPromoMethodsAvailable() == 'smsonly'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#smsHelpModal">Find out how to verify yourself using a text message code</button></li>
+                <li v-if="calcPromoMethodsAvailable() == 'apponly'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authAppModal">Find out how to verify yourself using the Nationwide Banking app</button></li>
+                <li v-if="calcPromoMethodsAvailable() == 'smsonly'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authSmsModal">Find out how to verify yourself using a text message code</button></li>
               </ul>
             </section>
 
