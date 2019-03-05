@@ -12,9 +12,9 @@ const store = {
   admin: true,
   auths: {
     app:{ enabled:false },
-    sms:{ enabled:false },
+    sms:{ enabled:false, manyEnabled:false },
     rca:{ enabled:false },
-    email:{ enabled:false },
+    email:{ enabled:false, manyEnabled:false },
     errors:{ enabled:false }
   },
   write: (data) => db.update({
@@ -29,6 +29,10 @@ var vm = new Vue({
   methods: {
     adminIcon: function(methodId){
       if(this.auths[methodId].enabled) return 'fa-check';
+      else return 'fa-times';
+    },
+    adminManyNumbersIcon: function(methodId){
+      if(!this.auths[methodId].manyEnabled) return 'fa-check';
       else return 'fa-times';
     },
     methodClasses: function(methodId){
@@ -46,12 +50,21 @@ var vm = new Vue({
         enabled: !this.auths[methodId].enabled
       });
     },
+    toggleManyNumbers: function(methodId){
+      db.doc(methodId).update({
+        manyEnabled: !this.auths[methodId].manyEnabled
+      });
+    },
     showPromo: function(){
       if(!this.auths.app.enabled || !this.auths.sms.enabled) return true;
       else return false;
     },
     showPromoMethod: function(methodId){
       if(!this.auths[methodId].enabled) return true
+      else return false;
+    },
+    showManyNumbers: function(methodId){
+      if(!this.auths[methodId].manyEnabled) return true
       else return false;
     },
     calcPromoMethodsAvailable: function(){

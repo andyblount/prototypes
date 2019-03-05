@@ -20,7 +20,7 @@
 </head>
 
 <body>
-
+<div id="osa-page">
   <div class="container">
     <!-- Grid row -->
     <div class="row">
@@ -31,89 +31,100 @@
             <img src="img/nationwide.png" class="nationwide-logo float-left" width="85" height="50" alt="Nationwide" />
             <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
           </header>
+
           <section class="section">
+            <h1>Confirm your email address</h1>
+            <div v-cloak v-if="showManyNumbers('email')" class="form-group mb-0">
+              <label class="mb-0" for="emailSelect">Where should we send a one-time code?</label>
+              <select class="form-control" id="emailSelect">
+                <option v-for="email in auths.email.emails">{{email}}</option>
+              </select>
+            </div>
+            <p v-if="!showManyNumbers('email')" v-cloak class="mb-0">We'll send a one-time code to: <strong>a...ggy@gmail.com</strong></p>
+            <p><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#emailHelpModal">Not the right email address?</button></p>
+            <ul class="list-unstyled">
+              <li><a href="useemailotp.html" class="btn btn-primary">Send code now <i class="fa fa-chevron-right"></i></a></li>
+              <li><a href="index.html" class="btn btn-link"><i class="fa fa-chevron-left"></i> Go back</a></li>
+            </ul>
+          </section>
 
-          <h1>Confirm your email address</h1>
-          <p class="mb-0">We'll send a one-time code to <strong>abc...@gmail.com</strong>.</p>
-          <p><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#emailHelpModal">Not the right email address?</button></p>
-          <ul class="list-unstyled">
-            <li><a href="useemailotp.html" class="btn btn-primary">Send code now <i class="fa fa-chevron-right"></i></a></li>
-            <li><a href="index.html" class="btn btn-link"><i class="fa fa-chevron-left"></i> Go back</a></li>
-          </ul>
-        </section>
-
-        <section class="email-help-popup">
-          <div class="modal fade right" tabindex="-1" role="dialog" id="emailHelpModal" data-backdrop="false">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Not the right email address?</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>To update your email address, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
-                  <ul class="list-unstyled">
-                    <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                  </ul>
+          <section class="email-help-popup">
+            <div class="modal fade right" tabindex="-1" role="dialog" id="emailHelpModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Not the right email address?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>To update your email address, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section class="help-popup">
-          <div class="modal fade right" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Help</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>If you're stuck, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
-                  <ul class="list-unstyled">
-                    <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                  </ul>
+          <section class="help-popup">
+            <div class="modal fade right" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Help</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>If you're stuck, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-        <section class="cancel-popup">
-          <div class="modal fade right" tabindex="-1" role="dialog" id="cancelModal" data-backdrop="false">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Are you sure?</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>If you cancel, you will be taken back to the checkout.</p>
-                  <button type="button" class="btn btn-primary d-block" data-dismiss="modal">Yes, cancel</button>
-                  <ul class="list-unstyled">
-                    <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
-                  </ul>
+          </section>
+          <section class="cancel-popup">
+            <div class="modal fade right" tabindex="-1" role="dialog" id="cancelModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>If you cancel, you will be taken back to the checkout.</p>
+                    <button type="button" class="btn btn-primary d-block" data-dismiss="modal">Yes, cancel</button>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="btn btn-link" data-dismiss="modal" aria-label="Close"><i class="fa fa-chevron-left"></i> Go back</a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
-    </div>
-    <footer class="footer clearfix">
-      <button type="button" class="btn btn-link float-left" id="cancelButton"  data-toggle="modal" data-target="#cancelModal">Cancel</button>
-      <button type="button" class="btn btn-link float-right" id="helpButton"  data-toggle="modal" data-target="#helpModal">Help</button>
-    </footer>
+          </section>
+        </div>
+        <footer class="footer clearfix">
+          <button type="button" class="btn btn-link float-left" id="cancelButton"  data-toggle="modal" data-target="#cancelModal">Cancel</button>
+          <button type="button" class="btn btn-link float-right" id="helpButton"  data-toggle="modal" data-target="#helpModal">Help</button>
+        </footer>
+      </div>
 
-    </div>
     <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
   </div>
-  <!-- Grid row -->
+
+  <div class="controls" v-cloak v-bind:class="{ 'd-none': !admin }" v-if="admin">
+    <button type="button" class="btn btn-secondary" v-on:click="toggleManyNumbers('email')"><i class="fa" v-bind:class="adminManyNumbersIcon('email')"></i> Show many emails</button><br/>
+  </div>
 </div>
 
   <!-- Firebase -->
@@ -138,6 +149,8 @@
   <script type="text/javascript" src="../js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script type="text/javascript" src="js/scripts.js"></script>
   <!-- Hotjar -->
   <!-- Hotjar Tracking Code for shivvy.com -->
   <script>
