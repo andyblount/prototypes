@@ -43,7 +43,7 @@
             <p v-if="!showManyNumbers('email')" v-cloak class="mb-0">We'll send a one-time code to: <strong>a...ggy@gmail.com</strong></p>
             <p><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#emailHelpModal">Not the right email address?</button></p>
             <ul class="list-unstyled">
-              <li><a href="useemailotp.html" class="btn btn-primary">Send code now <i class="fa fa-chevron-right"></i></a></li>
+              <li><a href="useemailotp.html" v-bind:href="methodUrl('emailotp')" class="btn btn-primary">Send code now <i class="fa fa-chevron-right"></i></a></li>
               <li><a href="index.html" class="btn btn-link"><i class="fa fa-chevron-left"></i> Go back</a></li>
             </ul>
           </section>
@@ -124,6 +124,7 @@
 
   <div class="controls" v-cloak v-bind:class="{ 'd-none': !admin }" v-if="admin">
     <button type="button" class="btn btn-secondary" v-on:click="toggleManyNumbers('email')"><i class="fa" v-bind:class="adminManyNumbersIcon('email')"></i> Show many emails</button><br/>
+    <button type="button" class="btn btn-secondary" v-on:click="toggleMethod('errors')"><i class="fa" v-bind:class="adminIcon('errors')"></i> {{auths.errors.name}}</button><br/>
   </div>
 </div>
 

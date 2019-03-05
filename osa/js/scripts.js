@@ -42,7 +42,11 @@ var vm = new Vue({
       return classes;
     },
     methodUrl: function(methodId){
-      if(this.auths.errors.enabled) return "use" + methodId + "error.html";
+      if(this.auths.errors.enabled){
+        if(methodId == 'sms' || methodId == 'email') return "use" + methodId + ".html";
+        else if(methodId == 'smsotp' || methodId == 'emailotp') return "use" + methodId + "error.html";
+        else return "use" + methodId + "error.html";
+      }
       else return "use" + methodId + ".html";
     },
     toggleMethod: function(methodId){
