@@ -115,7 +115,20 @@
   <!-- Grid row -->
 </div>
 
-
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCKFtKNb4FU33CAJpjLb7X8jHYTp6WUwFs",
+      authDomain: "osa1-bef6c.firebaseapp.com",
+      projectId: "osa1-bef6c",
+    };
+    firebase.initializeApp(config);
+    // Get a reference to the database service
+    const db = firebase.firestore().collection("authMethods");
+  </script>
   <!-- Vue -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
   <!-- JQuery -->
