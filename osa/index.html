@@ -60,7 +60,9 @@
                 </li>
               </ul>
               <ul class="list-unstyled" v-if="showPromo()">
-                <li><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authHelpModal">Find out how to verify yourself using a text message or the Nationwide Banking app</button></li>
+                <li v-if="calcPromoMethodsAvailable() == 'appandsms'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#authHelpModal">Find out how to verify yourself using a text message or the Nationwide Banking app</button></li>
+                <li v-if="calcPromoMethodsAvailable() == 'apponly'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#appHelpModal">Find out how to verify yourself using the Nationwide Banking app</button></li>
+                <li v-if="calcPromoMethodsAvailable() == 'smsonly'"><button type="button" class="btn btn-link underline"  data-toggle="modal" data-target="#smsHelpModal">Find out how to verify yourself using a text message code</button></li>
               </ul>
             </section>
 
@@ -303,6 +305,11 @@
         showPromoMethod: function(methodId){
           if(!this.auths[methodId].enabled) return true
           else return false;
+        },
+        calcPromoMethodsAvailable: function(){
+          if(!this.auths.app.enabled && !this.auths.sms.enabled) return "appandsms";
+          else if (!this.auths.app.enabled) return "apponly";
+          else if (!this.auths.sms.enabled) return "smsonly";
         }
       }
     });
