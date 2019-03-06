@@ -32,7 +32,9 @@
             <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
           </header>
 
-          <section class="section">
+          <section class="loading" v-bind:class="{ 'd-none' : dbIsLoaded }"><img src="img/loading.gif" alt="loading" /></section>
+
+          <section class="section" v-cloak v-bind:class="{ 'd-none' : !dbIsLoaded }">
             <h1>Confirm your email address</h1>
             <div v-cloak v-if="showManyNumbers('email')" class="form-group mb-0">
               <label class="mb-0" for="emailSelect">Where should we send a one-time code?</label>

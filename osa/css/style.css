@@ -104,7 +104,7 @@ strong, .badge, .form label {
   font-size: 18px;
   color: #004A8F;
   line-height: 24px;
-  padding:3px 0;
+  padding:0;
   white-space: normal;
   text-align: left;
 }
@@ -324,6 +324,14 @@ strong, .badge, .form label {
   background: #fff;
   text-align: center;
   z-index: 1100;
+}
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading img {
+  margin-top: 80px;
 }
 .controls {
   display: flex;

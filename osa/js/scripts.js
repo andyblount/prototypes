@@ -10,6 +10,7 @@ $(document).ready(function() {
 // create empty store object to use before db is loaded
 const store = {
   admin: true,
+  dbIsLoaded: false,
   auths: {
     app:{ enabled:false },
     sms:{ enabled:false, manyEnabled:false },
@@ -95,5 +96,6 @@ db.onSnapshot((dataUpdate) => {
     methods[method.id] = method;
   });
   store.auths = methods;
+  store.dbIsLoaded = true;
   console.log("updated db: ", methods);
 });
