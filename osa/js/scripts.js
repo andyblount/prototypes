@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 // create empty store object to use before db is loaded
 const store = {
-  admin: false,
+  admin: true,
   dbIsLoaded: false,
   auths: {
     app:{ enabled:false },
