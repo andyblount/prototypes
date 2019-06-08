@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <META NAME="robots" CONTENT="noindex">
+  <title>OSA</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <!-- Global custom styles -->
+  <link href="../css/style.css" rel="stylesheet">
+  <!-- NBS fonts -->
+  <link href="css/fonts.css" rel="stylesheet">
+  <!-- Prototype custom styles -->
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <!-- Grid row -->
+    <div class="row">
+      <!-- Grid column -->
+      <div id="osa-iframe">
+        <div class="page-wrap">
+          <header class="header clearfix">
+            <img src="img/nationwide.png" class="nationwide-logo float-left" width="85" height="50" alt="Nationwide" />
+            <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
+          </header>
+          <section class="section">
+
+          <h1>Use a card reader</h1>
+          <p>You are paying <strong>£319.00</strong> to <strong>Apple.com</strong> with card ending 2829.</p>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-2 pl-0 pr-1">
+                <img src="img/rca.png" alt="" width="45" />
+              </div>
+              <div class="col-10 pl-1 pr-0">
+                <ol class="list-unstyled rca-instructions mb-2">
+                  <li>Insert your card into the card reader and press <strong>Respond</strong> <img src="img/rcaicon.png" width="30" height="20" /></li>
+                  <li>Enter your <strong>PIN</strong> and press <img src="img/rcaok.png" alt="OK" width="30" height="20" /></li>
+                  <li>Enter number <strong>1234 4568</strong> and press <img src="img/rcaok.png" alt="OK" width="30" height="20" /></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
+          <div class="form alert alert-info pt-2 pb-2">
+            <div class="form-group mb-0">
+              <label for="rcaotp"><strong>Enter code shown</strong></label>
+            </div>
+            <div class="forminline">
+              <div class="form-group mb-0">
+                <input class="form-control d-inline" type="text" id="rcaotp">
+                <a href="complete.html" class="btn btn-primary d-inline">Continue</a>
+              </div>
+            </div>
+          </div>
+
+          <ul class="list-unstyled">
+            <li><a href="index.html" class="btn btn-link"><i class="fa fa-chevron-left"></i> Go back</a></li>
+          </ul>
+        </section>
+
+        <section class="help-popup">
+          <div class="modal fade right" tabindex="-1" role="dialog" id="helpModal" data-backdrop="false">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Help</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>If you're stuck, please call Nationwide on <a href="tel:+448004643053"><strong>0800 464 3053</strong></a> (from UK landlines and mobiles) or <a href="tel:+441793774100">+44 1793 774 100</a> (from abroad).</p>
+                  <button type="button" class="btn btn-primary d-block" data-dismiss="modal">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="cancel-popup">
+          <div class="modal fade right" tabindex="-1" role="dialog" id="cancelModal" data-backdrop="false">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Are you sure?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>If you cancel, you will be taken back to the checkout.</p>
+                  <button type="button" class="btn btn-primary d-block" data-dismiss="modal">Yes, cancel</button>
+                  <button type="button" class="btn btn-secondary d-block" data-dismiss="modal">No, don't cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+    </div>
+    <footer class="footer clearfix">
+      <button type="button" class="btn btn-link float-left" id="cancelButton"  data-toggle="modal" data-target="#cancelModal">Cancel</button>
+      <button type="button" class="btn btn-link float-right" id="helpButton"  data-toggle="modal" data-target="#helpModal">Help</button>
+    </footer>
+
+    </div>
+    <!-- Grid column -->
+  </div>
+  <!-- Grid row -->
+</div>
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCKFtKNb4FU33CAJpjLb7X8jHYTp6WUwFs",
+      authDomain: "osa1-bef6c.firebaseapp.com",
+      projectId: "osa1-bef6c",
+    };
+    firebase.initializeApp(config);
+    // Get a reference to the database service
+    const db = firebase.firestore().collection("authMethods");
+  </script>
+  <!-- Vue -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <!-- JQuery -->
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="../js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <!-- Hotjar -->
+  <!-- Hotjar Tracking Code for shivvy.com -->
+  <script>
+    (function(h, o, t, j, a, r) {
+      h.hj = h.hj || function() {
+        (h.hj.q = h.hj.q || []).push(arguments)
+      };
+      h._hjSettings = {
+        hjid: 1181104,
+        hjsv: 6
+      };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script');
+      r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
+  <!-- Decibel -->
+  <script>
+    (function(d,e,c,i,b,el,it) {
+      d._da_=d._da_||[];_da_.oldErr=d.onerror;_da_.err=[];
+      d.onerror=function(){_da_.err.push(arguments);_da_.oldErr&&_da_.oldErr.apply(d,Array.prototype.slice.call(arguments));};
+      d.DecibelInsight=b;d[b]=d[b]||function(){(d[b].q=d[b].q||[]).push(arguments);};
+      el=e.createElement(c),it=e.getElementsByTagName(c)[0];el.async=1;el.src=i;it.parentNode.insertBefore(el,it);
+    })(window,document,'script','https://cdn.decibelinsight.net/i/13607/68591/di.js','decibelInsight');
+    (function() {
+      function onDecibelReady() {decibelInsight('setRetention', true);}
+      if (window.hasOwnProperty('decibelInsight')) { decibelInsight('ready', onDecibelReady);
+      } else { window['_da_ready'] = onDecibelReady;}
+    })();
+  </script>
+
+  <script>
+
+  </script>
+</body>
+</html>
