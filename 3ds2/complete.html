@@ -6,15 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <META NAME="robots" CONTENT="noindex">
-  <title>OSA</title>
+    <title>Amazon.co.uk: Low Prices in Electronics, Books, Sports Equipment & more</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <!-- Global custom styles -->
   <link href="../css/style.css" rel="stylesheet">
-  <!-- NBS fonts -->
-  <link href="css/fonts.css" rel="stylesheet">
+  <!-- Open Sans font -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
   <!-- Prototype custom styles -->
   <link href="css/style.css" rel="stylesheet">
 </head>
@@ -27,21 +27,77 @@
       <!-- Grid column -->
       <div id="osa-iframe">
         <div class="page-wrap">
-          <header class="header clearfix">
-            <img src="img/nationwide.png" class="nationwide-logo float-left" width="85" height="50" alt="Nationwide" />
-            <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
+          <header class="header">
+            <div class="head-buttons clearfix">
+              <button type="button" class="btn btn-link float-right" id="cancelButton"  data-toggle="modal" data-target="#cancelModal">Cancel</button>
+            </div>
+            <div class="head-icons clearfix">
+              <img src="img/nationwide.png" class="nationwide-logo float-left" alt="Nationwide" />
+              <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
+            </div>
           </header>
           <section class="section">
             <br/>
-            <div class="text-center">
-              <i class="fa fa-spinner fa-spin fa-3x"></i>
-            </div>
             <br/>
-            <h1 class="text-center"><i class="fa fa-check" style="color:#3b8634"></i> Thanks for confirming</h1>
+            <div>
+              <i class="fa fa-check-circle fa-3x green"></i>
+            </div>
+            <h1 class="green">Verification successful</h1>
+            <p>You order for <strong>£294.99</strong> to <strong>Amazon.co.uk</strong> on<br/> 12/07/19 has been successfully completed.</p>
+          </section>
 
+          <section class="cancel-popup">
+            <div class="modal" tabindex="-1" role="dialog" id="cancelModal" data-backdrop="false">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-body">
+                    <h5>Are you sure?</h5>
+                    <p>If you cancel, you will be taken back to the checkout.</p>
+                    <div class="mt-3 text-right">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Yes, cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
       </div>
+      <footer class="footer clearfix">
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Learn about verifying payments online
+                </button>
+              </h5>
+            </div>
 
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>So we know it's really you making online payments, you may need to verify yourself. To learn more visit www.nationwide.co.uk and search for 'Strong Customer Authentication'.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Need some help?
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>Please call Nationwide Building Society on 0800 464 3053 (from UK landlines and mobiles) or +44 1793 774 100 (from abroad). Lines are open 24 hours a day.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div class="modal-bg"></div>
       </div>
       <!-- Grid column -->
     </div>
