@@ -6,20 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <META NAME="robots" CONTENT="noindex">
-    <title>Amazon.co.uk: Low Prices in Electronics, Books, Sports Equipment & more</title>
+  <title>Amazon.co.uk: Low Prices in Electronics, Books, Sports Equipment & more</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <!-- Global custom styles -->
   <link href="../css/style.css" rel="stylesheet">
-  <!-- Open Sans font -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- NBS fonts -->
+  <link href="css/fonts.css" rel="stylesheet">
   <!-- Prototype custom styles -->
   <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
+<div id="osa-page">
 
   <div class="amazon-header clearfix">
     <span class="amazon-logo">Amazon logo</span>
@@ -47,10 +48,12 @@
             </div>
           </header>
 
-          <section class="section body">
+          <section class="loading" v-bind:class="{ 'd-none' : dbIsLoaded }"><img src="img/loading.gif" alt="loading" /></section>
+
+          <section class="section body" v-cloak v-bind:class="{ 'd-none' : !dbIsLoaded }">
             <h1>Please approve payment</h1>
             <p>We've sent a one-time code in a text message<br/> to your mobile number ending in 450.</p>
-            <p>You are paying Amazon.co.uk<br/> the amount of £294.99 on 12/07/19.</p>
+            <p>You are paying Amazon.co.uk<br/> the amount of £294.99 on {{date}}.</p>
 
           <div class="form">
             <div class="form-group mb-0">
@@ -119,10 +122,11 @@
   <!-- Grid row -->
 </div>
 
-<div class="amazon-footer">
-  <p>Need help? Check our Help pages or contact us</p>
-  <p>When you click the "Buy now" button, we'll send you an e-mail message acknowledging receipt of your order. Your contract to purchase an item will not be complete until we send you an e-mail to indicate that the item has been dispatched.</p>
-  <p>Within 30 days of delivery, you may return new, unopened physical merchandise in its original condition. Exceptions and restrictions apply. See Amazon.co.uk's Return Policy.</p>
+  <div class="amazon-footer">
+    <p>Need help? Check our Help pages or contact us</p>
+    <p>When you click the "Buy now" button, we'll send you an e-mail message acknowledging receipt of your order. Your contract to purchase an item will not be complete until we send you an e-mail to indicate that the item has been dispatched.</p>
+    <p>Within 30 days of delivery, you may return new, unopened physical merchandise in its original condition. Exceptions and restrictions apply. See Amazon.co.uk's Return Policy.</p>
+  </div>
 </div>
 
   <!-- Firebase -->
@@ -147,6 +151,8 @@
   <script type="text/javascript" src="../js/popper.min.js"></script>
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script type="text/javascript" src="js/scripts.js"></script>
   <!-- Decibel -->
   <script>
     (function(d,e,c,i,b,el,it) {
@@ -163,7 +169,6 @@
   </script>
 
   <script>
-
   </script>
 </body>
 </html>

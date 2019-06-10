@@ -7,11 +7,13 @@ $(document).ready(function() {
   });
 });
 
+
 // create empty store object to use before db is loaded
 const store = {
   admin: true,
   dbIsLoaded: false,
-  auths: {
+  date: '15/07/19',
+  auths:{
     app:{ enabled:false },
     sms:{ enabled:false, manyEnabled:false },
     rca:{ enabled:false },
@@ -81,7 +83,17 @@ var vm = new Vue({
       setTimeout(function(){
         $(modalId).modal('hide')
       }, 1000);
+    },
+    getTodaysDate: function() {
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0');
+      var yyyy = today.getFullYear().toString().substr(-2);
+      this.date = mm + '/' + dd + '/' + yyyy;
     }
+  },
+  created: function() {
+    this.getTodaysDate();
   }
 });
 
