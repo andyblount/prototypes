@@ -6,11 +6,16 @@ body {
   width:390px;
   height:400px;
   border:1px solid #ddd;
-  margin: 50px;
+  margin: 20px 0 50px;
   overflow-x: auto;
   position: relative;
   text-align:center;
   background: #FCFCFC;
+}
+
+.container .row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 h1,h2,h3,h4,h5,h6 {
@@ -387,13 +392,13 @@ strong, .badge, .form label {
   margin-top: -15px;
 }
 .amazon-header h1 {
-  font-size:25px;
+  font-size:20px;
   font-weight: 400;
   font-family: "Amazon Ember",Arial,sans-serif;
   line-height: 66px;
 }
 .amazon-header span {
-  font-size: 19px;
+  font-size: 16px;
 }
 .amazon-header .fa-lock {
   font-size:25px;
@@ -404,13 +409,39 @@ strong, .badge, .form label {
   color: #aaa;
 }
 .amazon-footer {
-  background: linear-gradient(to bottom,rgba(0,0,0,.07),rgba(0,0,0,.02) 3px,transparent);
+  background: linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.04) 3px,transparent);
+  background-color: #fff;
   color: #666;
   text-align: left;
-  padding: 50px 5%;
+  padding: 30px 5%;
   font-family: "Amazon Ember",Arial,sans-serif;
+  position: relative;
+}
+.amazon-footer:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  background: linear-gradient(to right,#fff,rgba(255,255,255,0),#fff);
+  z-index: 1;
+  content: "";
 }
 .amazon-footer p {
   font-size: 11px;
   max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
+.amazon-content {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+.amazon-content h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: "Amazon Ember",Arial,sans-serif;
 }
