@@ -20,15 +20,20 @@
 </head>
 
 <body>
+  <div id="osa-page">
 
-  <div class="amazon-header clearfix">
-    <span class="amazon-logo">Amazon logo</span>
-    <h1>Checkout <span>(1 item)</span></h1>
-    <i class="fas fa-lock"></i>
-  </div>
+    <div class="amazon-header clearfix">
+      <span class="amazon-logo">Amazon logo</span>
+      <h1>Checkout <span>(1 item)</span></h1>
+      <i class="fas fa-lock"></i>
+    </div>
 
   <div class="container">
     <!-- Grid row -->
+    <div class="amazon-content row">
+      <h3>Complete your purchase:</h3>
+    </div>
+
     <div class="row">
       <!-- Grid column -->
       <div id="osa-iframe">
@@ -42,14 +47,17 @@
               <img src="img/verifiedbyvisa.png" class="verifiedbyvisa float-right" alt="Verified by Visa" />
             </div>
           </header>
-          <section class="section">
+
+          <section class="loading" v-bind:class="{ 'd-none' : dbIsLoaded }"><img src="img/loading.gif" alt="loading" /></section>
+
+          <section class="section body" v-cloak v-bind:class="{ 'd-none' : !dbIsLoaded }">
             <br/>
             <br/>
             <div>
               <i class="fa fa-check-circle fa-3x green"></i>
             </div>
             <h1 class="green">Verification successful</h1>
-            <p>You order for <strong>£294.99</strong> to <strong>Amazon.co.uk</strong> on<br/> 12/07/19 has been successfully completed.</p>
+            <p>You order for <strong>£294.99</strong> to <strong>Amazon.co.uk</strong> on<br/> {{date}} has been successfully completed.</p>
           </section>
 
           <section class="cancel-popup">
@@ -116,31 +124,50 @@
     <p>Within 30 days of delivery, you may return new, unopened physical merchandise in its original condition. Exceptions and restrictions apply. See Amazon.co.uk's Return Policy.</p>
   </div>
 
-  <!-- Vue -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <!-- JQuery -->
-  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="../js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <!-- Decibel -->
-  <script>
-    (function(d,e,c,i,b,el,it) {
-      d._da_=d._da_||[];_da_.oldErr=d.onerror;_da_.err=[];
-      d.onerror=function(){_da_.err.push(arguments);_da_.oldErr&&_da_.oldErr.apply(d,Array.prototype.slice.call(arguments));};
-      d.DecibelInsight=b;d[b]=d[b]||function(){(d[b].q=d[b].q||[]).push(arguments);};
-      el=e.createElement(c),it=e.getElementsByTagName(c)[0];el.async=1;el.src=i;it.parentNode.insertBefore(el,it);
-    })(window,document,'script','https://cdn.decibelinsight.net/i/13607/68591/di.js','decibelInsight');
-    (function() {
-      function onDecibelReady() {decibelInsight('setRetention', true);}
-      if (window.hasOwnProperty('decibelInsight')) { decibelInsight('ready', onDecibelReady);
-      } else { window['_da_ready'] = onDecibelReady;}
-    })();
-  </script>
+</div>
 
-  <script>
 
-  </script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.8.0/firebase-firestore.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCKFtKNb4FU33CAJpjLb7X8jHYTp6WUwFs",
+    authDomain: "osa1-bef6c.firebaseapp.com",
+    projectId: "osa1-bef6c",
+  };
+  firebase.initializeApp(config);
+  // Get a reference to the database service
+  const db = firebase.firestore().collection("authMethods");
+</script>
+<!-- Vue -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- JQuery -->
+<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="../js/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<!-- Custom JavaScript -->
+<script type="text/javascript" src="js/scripts.js"></script>
+<!-- Decibel -->
+<script>
+  (function(d,e,c,i,b,el,it) {
+    d._da_=d._da_||[];_da_.oldErr=d.onerror;_da_.err=[];
+    d.onerror=function(){_da_.err.push(arguments);_da_.oldErr&&_da_.oldErr.apply(d,Array.prototype.slice.call(arguments));};
+    d.DecibelInsight=b;d[b]=d[b]||function(){(d[b].q=d[b].q||[]).push(arguments);};
+    el=e.createElement(c),it=e.getElementsByTagName(c)[0];el.async=1;el.src=i;it.parentNode.insertBefore(el,it);
+  })(window,document,'script','https://cdn.decibelinsight.net/i/13607/68591/di.js','decibelInsight');
+  (function() {
+    function onDecibelReady() {decibelInsight('setRetention', true);}
+    if (window.hasOwnProperty('decibelInsight')) { decibelInsight('ready', onDecibelReady);
+    } else { window['_da_ready'] = onDecibelReady;}
+  })();
+</script>
+
+<script>
+</script>
+
 </body>
 </html>
