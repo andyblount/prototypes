@@ -363,3 +363,54 @@ strong, .badge, .form label {
 [v-cloak] {
   display: none;
 }
+
+.amazon-header {
+  background: linear-gradient(to bottom,  #ffffff 0%,#ffffff 50%,#f3f3f3 100%);
+  border-bottom: 1px solid #ddd;
+  height: 66px;
+  text-align: center;
+  position: relative;
+}
+.amazon-logo {
+  background: url(https://m.media-amazon.com/images/G/01/AUIClients/AmazonUIIcon@legacyImages-sprite_2x-13acd72bb22e0c502de00d0afe21c494871da686._V2_.png);
+  background-position: -5px -130px;
+  height: 31px;
+  width: 103px;
+  background-size: 400px 900px;
+  background-repeat: no-repeat;
+  display: inline-block;
+  vertical-align: top;
+  text-indent: -9000px;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  margin-top: -15px;
+}
+.amazon-header h1 {
+  font-size:25px;
+  font-weight: 400;
+  font-family: "Amazon Ember",Arial,sans-serif;
+  line-height: 66px;
+}
+.amazon-header span {
+  font-size: 19px;
+}
+.amazon-header .fa-lock {
+  font-size:25px;
+  position:  absolute;
+  top:50%;
+  right:5%;
+  margin-top: -15px;
+  color: #aaa;
+}
+.amazon-footer {
+  background: linear-gradient(to bottom,rgba(0,0,0,.07),rgba(0,0,0,.02) 3px,transparent);
+  color: #666;
+  text-align: left;
+  padding: 50px 5%;
+  font-family: "Amazon Ember",Arial,sans-serif;
+}
+.amazon-footer p {
+  font-size: 11px;
+  max-width: 700px;
+}
