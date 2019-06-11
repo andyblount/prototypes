@@ -1,9 +1,11 @@
 $(document).ready(function() {
   // for long pages when user triggers help modal at bottom of page
   $('.modal').on('show.bs.modal', function (e) {
-    $('#osa-iframe').animate({
-      scrollTop: 0
-    }, 200);
+    $('#osa-iframe').animate({ scrollTop: 0 }, 200);
+  });
+  // for long pages when user triggers help modal at bottom of page
+  $('.collapse').on('show.bs.collapse', function (e) {
+    $('#osa-iframe').animate({ scrollTop: $('#osa-iframe').prop('scrollHeight')}, 200);
   });
 });
 
