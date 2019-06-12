@@ -479,14 +479,49 @@ strong, .badge, .form label {
   font-family: "Amazon Ember",Arial,sans-serif;
 }
 
-.text-message {
-  position: absolute;
-  right: 10%;
-  top: 10%;
-  width: 300px;
-  background: #fff;
-  border: 1px solid #ddd;
-  padding: 15px;
-  border-radius:20px;
-  font-size: 13px;
+@media (min-width: 0px){
+  .text-message {
+    background: #555;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .text-message .message {
+    text-align: left;
+    width: 300px;
+    display: inline-block;
+  }
+  .message-header {
+    background: #f1f1f1;
+    padding: 5px 13px;
+    border-radius:12px 12px 0 0;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #555;
+  }
+  .message-body {
+    background: #ddd;
+    padding: 5px 15px;
+    border-radius:0 0 12px 12px;
+    font-size: 13px;
+  }
+  .text-message p {
+    margin: 0;
+  }
+}
+@media (min-width: 769px){
+  .text-message {
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 30%;
+    height: 100%;
+    padding: 15px;
+  }
+  .text-message .message {
+    width: auto;
+    max-width: 300px;
+  }
+  .page {
+    width: 70%;
+  }
 }
