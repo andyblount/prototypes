@@ -17,14 +17,22 @@ const store = {
   date: '15/07/19',
   auths:{
     app:{ enabled:false },
-    sms:{ enabled:false, manyEnabled:false },
-    rca:{ enabled:false },
-    email:{ enabled:false, manyEnabled:false },
+    sms:{ enabled:false, manyEnabled:false, otp:'123456' },
+    rca:{ enabled:false, otp:'18821337' },
+    email:{ enabled:false, manyEnabled:false, otp:'123ABC' },
     errors:{ enabled:false }
   },
   write: (data) => db.update({
       enabled: !data.enabled
-  })
+  }),
+  sms: {
+    otpInput: '',
+    otpIsEmpty: false,
+    otpIsInvalid: false,
+    otpIsIncorrect: false,
+    otpIsValid: false,
+    smsIsVisible: true
+  }
 };
 
 // init viewModel and declare methods
@@ -92,6 +100,45 @@ var vm = new Vue({
       var mm = String(today.getMonth() + 1).padStart(2, '0');
       var yyyy = today.getFullYear().toString().substr(-2);
       this.date = mm + '/' + dd + '/' + yyyy;
+    },
+    checkOtp: function(otpType) {
+      console.log(this.sms.otpInput);
+      // show sms message modal
+
+
+      if(this.sms.otpInput.length == 0) {
+        // show otp required field message
+        console.log("OTP REQUIRED");
+        this.sms.otpIsEmpty = true;
+        this.sms.otpIsInvalid = false;
+        this.sms.otpIsIncorrect = false;
+        this.sms.otpIsValid = false;
+      }
+      else if(this.sms.otpInput.length != 6) {
+        // show incorrect format error
+        console.log("INCORRECT FORMAT");
+        this.sms.otpIsEmpty = false;
+        this.sms.otpIsInvalid = true;
+        this.sms.otpIsIncorrect = false;
+        this.sms.otpIsValid = false;
+      }
+      else if (this.auths[otpType].otp == this.sms.otpInput) {
+        // redirect to complete page
+        console.log("PASS");
+        this.sms.otpIsEmpty = false;
+        this.sms.otpIsInvalid = false;
+        this.sms.otpIsIncorrect = false;
+        this.sms.otpIsValid = true;
+        window.location.href = "complete.html";
+      }
+      else {
+        // show incorrect match error
+        console.log("INCORRECT CODE");
+        this.sms.otpIsEmpty = false;
+        this.sms.otpIsInvalid = false;
+        this.sms.otpIsIncorrect = true;
+        this.sms.otpIsValid = false;
+      }
     }
   },
   created: function() {

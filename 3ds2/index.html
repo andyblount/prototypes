@@ -52,13 +52,19 @@
 
           <section class="section body" v-cloak v-bind:class="{ 'd-none' : !dbIsLoaded }">
             <h1>Please approve payment</h1>
-            <p>We've sent a one-time code in a text message<br/> to your mobile number ending in 450.</p>
-            <p>You are paying Amazon.co.uk<br/> the amount of £294.99 on {{date}}.</p>
+            <div class="otp-incorrect text-left" v-bind:class="{ 'd-none' : !sms.otpIsIncorrect }">
+              <i class="fas fa-exclamation-circle"></i>
+              <p>Sorry, that didn't match.<br/>Please try again.</p>
+            </div>
+            <p v-bind:class="{ 'd-none' : sms.otpIsIncorrect }">We've sent a one-time code in a text message<br/> to your mobile number ending in 450.</p>
+            <p v-bind:class="{ 'd-none' : sms.otpIsIncorrect }">You are paying Amazon.co.uk<br/> the amount of £294.99 on {{date}}.</p>
 
           <div class="form">
             <div class="form-group mb-0">
-              <input class="form-control otp" type="text" id="smsotp" data-di-unmask-field placeholder="Enter one-time code">
-              <a href="complete.html" class="btn btn-primary">Continue</a>
+              <input class="form-control otp" type="text" id="smsotp" v-model="sms.otpInput" placeholder="Enter one-time code">
+              <p class="alert alert-danger" role="alert" v-bind:class="{ 'd-none' : !sms.otpIsEmpty }">The code you entered is in the wrong format</p>
+              <p class="alert alert-danger" role="alert" v-bind:class="{ 'd-none' : !sms.otpIsInvalid }">The code you entered is in the wrong format</p>
+              <button type="button" class="btn btn-primary" v-on:click="checkOtp('sms')">Continue</a>
               <button type="button" class="btn btn-secondary">Resend</button>
             </div>
           </div>
@@ -122,10 +128,23 @@
   <!-- Grid row -->
 </div>
 
+  <section class="text-message" v-bind:class="{ 'd-none' : !sms.smsIsVisible }">
+    <!--<div class="modal" tabindex="-1" role="dialog" id="smsModal" data-backdrop="false">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">-->
+          <div>
+            <strong>Nationwide:</strong><br/>
+            Use one-time code 123456 to make a payment of £294.99 to Amazon.co.uk with card ending 3800. Never share this code with anyone.
+          </div>
+        <!--</div>
+      </div>
+    </div>-->
+  </section>
+
   <div class="amazon-footer">
-    <p>Need help? Check our Help pages or contact us</p>
+    <p>Need help? Check our <a href="#">Help pages</a> or <a href="#">contact us</a></p>
     <p>When you click the "Buy now" button, we'll send you an e-mail message acknowledging receipt of your order. Your contract to purchase an item will not be complete until we send you an e-mail to indicate that the item has been dispatched.</p>
-    <p>Within 30 days of delivery, you may return new, unopened physical merchandise in its original condition. Exceptions and restrictions apply. See Amazon.co.uk's Return Policy.</p>
+    <p>Within 30 days of delivery, you may return new, unopened physical merchandise in its original condition. Exceptions and restrictions apply. See Amazon.co.uk's <a href="#">Return Policy</a>.</p>
   </div>
 </div>
 

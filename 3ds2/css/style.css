@@ -58,6 +58,18 @@ strong, .badge, .form label {
   color: #2E7B32;
 }
 
+.alert {
+  border-width:0;
+  padding: 0;
+  margin: 0;
+  background: none;
+  line-height: 14px;
+  font-size: 10px;
+}
+.alert-danger {
+  color: #FF1B1B;
+}
+
 .btn-primary:hover,
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:focus,
@@ -184,6 +196,23 @@ strong, .badge, .form label {
   outline: none;
   box-shadow: none;
   border-bottom: 1px solid #4A90FF;
+}
+.form .alert {
+  margin-top: -0.7rem;
+  margin-bottom: 0.7rem;
+}
+
+.otp-incorrect {
+  padding-left: 25%;
+  position: relative;
+}
+.otp-incorrect .fas {
+  position: absolute;
+  left: 25%;
+  top: 0;
+  margin-left: -45px;
+  font-size: 30px;
+  color: #FF1B1B;
 }
 
 .page-wrap {
@@ -435,6 +464,10 @@ strong, .badge, .form label {
   position: relative;
   z-index: 2;
 }
+.amazon-footer a {
+  text-decoration: underline;
+  color:#0066c0;
+}
 .amazon-content {
   margin-top: 10px;
   margin-bottom: 0;
@@ -444,4 +477,16 @@ strong, .badge, .form label {
   font-size: 17px;
   font-weight: 700;
   font-family: "Amazon Ember",Arial,sans-serif;
+}
+
+.text-message {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius:20px;
+  font-size: 13px;
 }
