@@ -71,10 +71,10 @@
               <h1>Please approve payment</h1>
               <div class="otp-incorrect text-left" v-bind:class="{ 'd-none' : !sms.otpIsIncorrect }">
                 <i class="fas fa-exclamation-circle"></i>
-                <p>Sorry, that didn't match.<br/>Please try again.</p>
+                <p>Sorry, you haven’t verified correctly. <br/>Please try again.</p>
               </div>
               <p v-bind:class="{ 'd-none' : sms.otpIsIncorrect }">We've sent a one-time code in a text message<br/> to your mobile number ending in 450.</p>
-              <p v-bind:class="{ 'd-none' : sms.otpIsIncorrect }">You are paying Amazon.co.uk<br/> the amount of £294.99 on {{date}}.</p>
+              <p v-bind:class="{ 'd-none' : sms.otpIsIncorrect }">You're approving the payment of £294.99 <br/>to Amazon.co.uk on {{date}}.</p>
 
             <div class="form">
               <div class="form-group mb-0">
@@ -107,21 +107,6 @@
       <footer class="footer clearfix">
         <div class="accordion" id="accordionExample">
           <div class="card">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                  Learn about verifying payments online
-                </button>
-              </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                <p>So we know it's really you making online payments, you may need to verify yourself. To learn more visit www.nationwide.co.uk and search for 'Strong Customer Authentication'.</p>
-              </div>
-            </div>
-          </div>
-          <div class="card">
             <div class="card-header" id="headingTwo">
               <h5 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -132,6 +117,20 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
                 <p>Please call Nationwide Building Society on 0800 464 3053 (from UK landlines and mobiles) or +44 1793 774 100 (from abroad). Lines are open 24 hours a day.</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Why you need to verify payments
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <p>So we know it's really you making online payments, you may need to verify yourself. Find out more at nationwide.co.uk – search for 'Visa Secure'.</p>
               </div>
             </div>
           </div>
