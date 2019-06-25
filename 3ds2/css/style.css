@@ -521,7 +521,7 @@ strong, .badge, .form label {
 
 @media (min-width: 769px){
   .text-message {
-    position: absolute;
+    position: fixed;
     top: 0;
     right:0;
     width: 30%;
