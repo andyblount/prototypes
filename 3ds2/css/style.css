@@ -245,7 +245,9 @@ strong, .badge, .form label {
 .header .head-icons {
   height:50px;
 }
-
+.header .verifiedbyvisa {
+  margin-top: 10px;
+}
 .section {
   padding-top:0;
   padding-bottom: 0;
@@ -509,7 +511,9 @@ strong, .badge, .form label {
   margin: 0;
 }
 .text-message h3 {
-  display: none;
+  color: #bbb;
+  line-height: 18px;
+  margin: 0 0 10px;
 }
 .text-message .hand {
   display: none;
@@ -548,8 +552,6 @@ strong, .badge, .form label {
   }
   .text-message h3 {
     display: block;
-    color: #bbb;
-    line-height: 18px;
     text-align: left;
     margin: 10px 10px 0;
   }
