@@ -479,35 +479,42 @@ strong, .badge, .form label {
   font-family: "Amazon Ember",Arial,sans-serif;
 }
 
-@media (min-width: 0px){
-  .text-message {
-    background: #555;
-    text-align: center;
-    padding: 10px 0;
-  }
-  .text-message .message {
-    text-align: left;
-    width: 300px;
-    display: inline-block;
-  }
-  .message-header {
-    background: #f1f1f1;
-    padding: 5px 13px;
-    border-radius:12px 12px 0 0;
-    text-transform: uppercase;
-    font-size: 11px;
-    color: #555;
-  }
-  .message-body {
-    background: #ddd;
-    padding: 5px 15px;
-    border-radius:0 0 12px 12px;
-    font-size: 13px;
-  }
-  .text-message p {
-    margin: 0;
-  }
+
+.text-message {
+  background: #555;
+  text-align: center;
+  padding: 10px 0;
+  box-shadow: inset 3px 3px 5px 0px rgba(0,0,0,0.5);
 }
+.text-message .message {
+  text-align: left;
+  width: 300px;
+  display: inline-block;
+}
+.message-header {
+  background: #f1f1f1;
+  padding: 5px 13px;
+  border-radius:12px 12px 0 0;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: #555;
+}
+.message-body {
+  background: #ddd;
+  padding: 5px 15px;
+  border-radius:0 0 12px 12px;
+  font-size: 13px;
+}
+.text-message p {
+  margin: 0;
+}
+.text-message h3 {
+  display: none;
+}
+.text-message .hand {
+  display: none;
+}
+
 @media (min-width: 769px){
   .text-message {
     position: absolute;
@@ -515,13 +522,35 @@ strong, .badge, .form label {
     right:0;
     width: 30%;
     height: 100%;
-    padding: 15px;
+    padding: 0;
+    overflow: hidden;
   }
   .text-message .message {
     width: auto;
-    max-width: 300px;
+    width: 200px;
+    position: absolute;
+    z-index: 2;
+    top: 105px;
+    right: 25px;
   }
   .page {
     width: 70%;
+  }
+  .text-message .hand {
+    display: block;
+    background: url("../img/phone.png") no-repeat;
+    width: 293px;
+    height: 705px;
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    right: 0;
+  }
+  .text-message h3 {
+    display: block;
+    color: #bbb;
+    line-height: 18px;
+    text-align: left;
+    margin: 10px 10px 0;
   }
 }
