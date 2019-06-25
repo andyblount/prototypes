@@ -6,7 +6,7 @@ body {
   width:390px;
   height:400px;
   border:1px solid #ddd;
-  margin: 20px 0 50px;
+  margin: 10px 0 50px;
   overflow-x: auto;
   position: relative;
   text-align:center;
@@ -56,6 +56,9 @@ strong, .badge, .form label {
 }
 .green {
   color: #2E7B32;
+}
+.red {
+  color: #B12704;
 }
 
 .alert {
@@ -473,14 +476,63 @@ strong, .badge, .form label {
 .amazon-content {
   margin-top: 10px;
   margin-bottom: 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+.amazon-content.no-border {
+  border-bottom: 0;
 }
 .amazon-content h3 {
   margin: 0;
   font-size: 17px;
   font-weight: 700;
   font-family: "Amazon Ember",Arial,sans-serif;
+  min-width: 220px;
 }
-
+.amazon-content h4 {
+  font-size: 14px;
+  line-height: 19px;
+}
+.amazon-content p {
+  margin: 0 0 10px;
+}
+.amazon-content .visa-card {
+  border:1px solid #ccc;
+  padding: 6px 3px;
+  margin-right: 6px;
+}
+.amazon-content .card {
+  margin-bottom: 20px;
+}
+.amazon-content .card h3 {
+  line-height: 24px;
+}
+.amazon-content .card p {
+  margin: 0 0 10px;
+}
+.amazon-content .img-thumbnail {
+  height: 100px;
+  width: 100px;
+  background: #f3f3f3;
+  margin-right: 20px;
+}
+.amazon-content .cta {
+  margin-right: 20px;
+}
+.amazon-content .btn-primary {
+  text-transform: none;
+  font-size: 13px;
+  background: #f0c14b linear-gradient(to bottom,#f7dfa5,#f0c14b);
+  border-color:#a88734 #9c7e31 #846a29;
+  color: #111;
+  box-shadow:0 1px 0 rgba(255,255,255,.4) inset;
+  min-width: 0;
+}
+.amazon-content .btn-primary:hover, .amazon-content .btn-primary:focus {
+  background: #ddac31 linear-gradient(to bottom,#f7dfa5,#ddac31);
+}
+.amazon-content .btn-primary:focus {
+  outline: -webkit-focus-ring-color auto 5px;
+}
 
 .text-message {
   background: #555;
@@ -537,7 +589,7 @@ strong, .badge, .form label {
     top: 105px;
     right: 25px;
   }
-  .page {
+  body.smsotp .page {
     width: 70%;
   }
   .text-message .hand {
@@ -554,5 +606,9 @@ strong, .badge, .form label {
     display: block;
     text-align: left;
     margin: 10px 10px 0;
+  }
+
+  .amazon-content p {
+    margin: 10px 0 10px;
   }
 }

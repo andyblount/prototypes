@@ -15,6 +15,7 @@ const store = {
   admin: true,
   dbIsLoaded: false,
   date: '15/07/19',
+  amazondate: '15 Jul 2019',
   auths:{
     app:{ enabled:false },
     sms:{ enabled:false, manyEnabled:false, otp:'123456' },
@@ -98,8 +99,16 @@ var vm = new Vue({
       var today = new Date();
       var dd = String(today.getDate()).padStart(2, '0');
       var mm = String(today.getMonth() + 1).padStart(2, '0');
-      var yyyy = today.getFullYear().toString().substr(-2);
-      this.date = mm + '/' + dd + '/' + yyyy;
+      var yy = today.getFullYear().toString().substr(-2);
+      this.date = dd + '/' + mm + '/' + yy;
+    },
+    getTomorrowsDate: function() {
+      var tomorrow = new Date();
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      var dd = String(tomorrow.getDate()).padStart(2, '0');
+      var mm = tomorrow.toLocaleString('en-us', { month: 'short' });
+      var yyyy = tomorrow.getFullYear().toString();
+      this.amazondate = dd + ' ' + mm + '. ' + yyyy;
     },
     checkOtp: function(otpType) {
       console.log(this.sms.otpInput);
@@ -143,6 +152,7 @@ var vm = new Vue({
   },
   created: function() {
     this.getTodaysDate();
+    this.getTomorrowsDate();
   }
 });
 
