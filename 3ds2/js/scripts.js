@@ -33,13 +33,14 @@ const store = {
     otpIsInvalid: false,
     otpIsIncorrect: false,
     otpIsValid: false,
+    otpAttemptsCount: 0,
     smsIsVisible: true,
-    otpAttemptsCount: 0
+    wasSmsResendPressed: false
   }
 };
 
 // init viewModel and declare methods
-var vm = new Vue({
+var vueVm = new Vue({
   el: '#osa-page',
   data: store,
   methods: {
@@ -159,6 +160,13 @@ var vm = new Vue({
       var results = regex.exec(location.search);
       if(results === null) this.urlID = '?' + name + '=0';
       else this.urlID = '?' + name + '=' + decodeURIComponent(results[1].replace(/\+/g, ' '));
+    },
+    smsResendPress: function() {
+      this.sms.wasSmsResendPressed = true;
+      var vm = this;
+      setTimeout(function() {
+        vm.sms.wasSmsResendPressed = false;
+      }, 1000);
     },
     startVerification: function() {
       window.location.href = "smsotp.html" + this.urlID;
