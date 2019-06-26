@@ -512,7 +512,7 @@ strong, .badge, .form label {
 .amazon-content .img-thumbnail {
   height: 100px;
   width: 100px;
-  background: #f3f3f3;
+  background: #f3f3f3 url("../img/product.png") no-repeat;
   margin-right: 20px;
 }
 .amazon-content .cta {

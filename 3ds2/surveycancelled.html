@@ -31,20 +31,36 @@
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-9 ml-0 pl-0">
+        <div class="col-lg-6 col-md-9 col-sm-12 ml-0 pl-0">
 
           <div class="container">
             <!-- Grid row -->
             <div class="amazon-content row no-border">
-                <div class="card mt-4 mb-4">
+              <div class="col-sm-12 ml-0 mr-0 pl-0 pr-0">
+                <div class="card mt-4 mb-2">
                   <div class="card-body">
-                    <h3 class="green"><i class="fas fa-check"></i> Thank you, this part of the survey is complete.</h3>
+                    <h3 class="red">Your payment was declined</h3>
+                    <p>Your payment could not be completed. Please call Nationwide on on 0800 464 3053 (from UK landlines and mobiles) or +44 1793 774 100 (from abroad).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="amazon-content row no-border">
+              <div class="col-sm-12 ml-0 mr-0 pl-0 pr-0">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h3>Thank you, this part of the survey is complete.</h3>
                     <p>Please continue to answer a few short questions about your experience.</p>
                     <div class="cta"><button type="button" class="btn btn-primary mb-0" v-on:click="completeSurvey()">Continue</button></div>
                   </div>
                 </div>
+              </div>
             </div>
+
+
           </div>
+
+        </div>
 
 
         </div>

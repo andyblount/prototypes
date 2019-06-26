@@ -16,6 +16,7 @@ const store = {
   dbIsLoaded: false,
   date: '15/07/19',
   amazondate: '15 Jul 2019',
+  urlID: '?ID=0',
   auths:{
     app:{ enabled:false },
     sms:{ enabled:false, manyEnabled:false, otp:'123456' },
@@ -32,7 +33,8 @@ const store = {
     otpIsInvalid: false,
     otpIsIncorrect: false,
     otpIsValid: false,
-    smsIsVisible: true
+    smsIsVisible: true,
+    otpAttemptsCount: 0
   }
 };
 
@@ -113,8 +115,6 @@ var vm = new Vue({
     checkOtp: function(otpType) {
       console.log(this.sms.otpInput);
       // show sms message modal
-
-
       if(this.sms.otpInput.length == 0) {
         // show otp required field message
         console.log("OTP REQUIRED");
@@ -143,16 +143,37 @@ var vm = new Vue({
       else {
         // show incorrect match error
         console.log("INCORRECT CODE");
+        this.sms.otpAttemptsCount++;
         this.sms.otpIsEmpty = false;
         this.sms.otpIsInvalid = false;
         this.sms.otpIsIncorrect = true;
         this.sms.otpIsValid = false;
+        if(this.sms.otpAttemptsCount == 3) {
+          this.cancelVerification();
+        }
       }
+    },
+    getUrlParameter: function(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      if(results === null) this.urlID = '?' + name + '=0';
+      else this.urlID = '?' + name + '=' + decodeURIComponent(results[1].replace(/\+/g, ' '));
+    },
+    startVerification: function() {
+      window.location.href = "smsotp.html" + this.urlID;
+    },
+    cancelVerification: function() {
+      window.location.href = "surveycancelled.html" + this.urlID;
+    },
+    completeSurvey: function() {
+      window.location.href = "index.html" + this.urlID;
     }
   },
   created: function() {
     this.getTodaysDate();
     this.getTomorrowsDate();
+    this.getUrlParameter('ID');
   }
 });
 
