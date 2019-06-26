@@ -162,6 +162,7 @@ var vueVm = new Vue({
       else this.urlID = '?' + name + '=' + decodeURIComponent(results[1].replace(/\+/g, ' '));
     },
     smsResendPress: function() {
+      window.scrollTo(0, 0);
       this.sms.wasSmsResendPressed = true;
       var vm = this;
       setTimeout(function() {
