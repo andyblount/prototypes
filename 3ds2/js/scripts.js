@@ -29,7 +29,7 @@ const store = {
   dbIsLoaded: false,
   date: '15/07/19',
   amazondate: '15 Jul 2019',
-  urlID: '?ID=0',
+  urlID: '?id=0',
   auths:{
     app:{ enabled:false },
     sms:{ enabled:false, manyEnabled:false, otp:'123456' },
@@ -195,7 +195,7 @@ var vueVm = new Vue({
   created: function() {
     this.getTodaysDate();
     this.getTomorrowsDate();
-    this.getUrlParameter('ID');
+    this.getUrlParameter('id');
   }
 });
 
