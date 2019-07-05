@@ -151,7 +151,7 @@ var vueVm = new Vue({
         this.sms.otpIsInvalid = false;
         this.sms.otpIsIncorrect = false;
         this.sms.otpIsValid = true;
-        this.cancelVerification();
+        this.completeVerification();
       }
       else {
         // show incorrect match error
