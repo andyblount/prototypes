@@ -7,20 +7,19 @@ $(document).ready(function() {
   $('.collapse').on('show.bs.collapse', function (e) {
     $('#osa-iframe').animate({ scrollTop: $('#osa-iframe').prop('scrollHeight')}, 200);
   });
-  // Decibel
-  (function() {
-       function onDecibelReady() {
-             decibelInsight('setRetention', true);
-       }
-       if (window.hasOwnProperty('decibelInsight')) {
-             decibelInsight('ready', onDecibelReady);
-       } else {
-             window['_da_ready'] = onDecibelReady;
-       }
-  })();
 });
 
-
+// Decibel
+(function() {
+     function onDecibelReady() {
+           decibelInsight('setRetention', true);
+     }
+     if (window.hasOwnProperty('decibelInsight')) {
+           decibelInsight('ready', onDecibelReady);
+     } else {
+           window['_da_ready'] = onDecibelReady;
+     }
+})();
 
 
 // create empty store object to use before db is loaded
