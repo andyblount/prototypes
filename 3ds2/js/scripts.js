@@ -151,7 +151,7 @@ var vueVm = new Vue({
         this.sms.otpIsInvalid = false;
         this.sms.otpIsIncorrect = false;
         this.sms.otpIsValid = true;
-        window.location.href = "complete.html";
+        this.cancelVerification();
       }
       else {
         // show incorrect match error
@@ -186,6 +186,9 @@ var vueVm = new Vue({
     },
     cancelVerification: function() {
       window.location.href = "surveycancelled.html" + this.urlID;
+    },
+    completeVerification: function() {
+      window.location.href = "complete.html" + this.urlID;
     },
     completeSurvey: function() {
       window.location.href = "index.html" + this.urlID;
