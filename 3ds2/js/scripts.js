@@ -9,18 +9,6 @@ $(document).ready(function() {
   });
 });
 
-// Decibel
-(function() {
-     function onDecibelReady() {
-           decibelInsight('setRetention', true);
-     }
-     if (window.hasOwnProperty('decibelInsight')) {
-           decibelInsight('ready', onDecibelReady);
-     } else {
-           window['_da_ready'] = onDecibelReady;
-     }
-})();
-
 
 // create empty store object to use before db is loaded
 const store = {
